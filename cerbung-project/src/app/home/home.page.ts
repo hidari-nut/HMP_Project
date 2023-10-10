@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  genrelist = ["Action", "Horror", "Comedy", "Politics"];
+
   constructor() { }
 
   ngOnInit() {

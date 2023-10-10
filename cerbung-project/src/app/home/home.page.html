@@ -3,8 +3,13 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Home
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" align="center">
+      Cerbung
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,16 +20,91 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title size="large">Home</ion-title>
+      <ion-title size="large">Cerbung</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
+  <div id="chips">
+    <ion-chip [outline]="true">
+      <ion-label type="floating">All</ion-label>
+    </ion-chip>
+    <ion-chip [outline]="true" *ngFor="let genre of genrelist">
+      <ion-label type="floating">{{genre}}</ion-label>
+    </ion-chip>
+  </div>
+
+  <div id="cards">
+    <ion-list>
+      <ion-card>
+        <ion-img
+          src="https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/04/Ninomae-Inanis-Unravel-1.jpg"
+          alt="https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/04/Ninomae-Inanis-Unravel-1.jpg">
+        </ion-img>
+        <ion-card-header>
+          <ion-card-title>
+            Ina's Secret to Cuteness
+          </ion-card-title>
+          <ion-card-subtitle>
+            by A-Chan
+          </ion-card-subtitle>
+
+          <div>
+            <ion-chip [outline]="true">
+              <ion-icon aria-hidden="true" name="list"></ion-icon>
+              <ion-label>34</ion-label>
+            </ion-chip>
+            <ion-chip [outline]="true">
+              <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
+              <ion-label>34</ion-label>
+            </ion-chip>
+          </div>
+
+
+          <!-- <ion-item id="counter">
+            <ion-icon aria-hidden="true" name="list"></ion-icon>
+            <ion-label>34</ion-label>
+            <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
+            <ion-label>34</ion-label>
+          </ion-item> -->
+
+          <!-- <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item id="counter">
+                  <ion-icon aria-hidden="true" name="list"></ion-icon>
+                  <ion-label>34</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
+                  <ion-label>34</ion-label>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid> -->
+
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list>
+            <!-- <ion-item>{{pasta.description}}</ion-item>
+            <ion-item>Price: {{pasta.price}}</ion-item>
+            <ion-item *ngIf="pasta.spicy == true">
+              <ion-chip color="danger">Spicy</ion-chip>
+            </ion-item> -->
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+
+  <!-- <div id="container">
     <strong>Ready to create an app?<br>
       No, Sir.
     </strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer"
         href="https://ionicframework.com/docs/components">UI Components</a></p>
     <p><a routerLink="/about">About</a></p>
-  </div>
+  </div> -->
 </ion-content>
