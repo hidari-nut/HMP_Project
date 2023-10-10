@@ -1,3 +1,59 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
+    <!-- tabs.page.html -->
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon name="planet-outline"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="list">
+          <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+          <ion-label>List</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="setting">
+          <ion-icon name="key-outline"></ion-icon>
+          <ion-label>Settings</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+  <ion-menu auto-hide="true" content-id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu List</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/home">
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/about">
+            <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/pasta">
+            <ion-icon name="pizza" slot="start"></ion-icon>
+            <ion-label>Pasta</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/newpasta">
+            <ion-icon name="pie-chart-outline" slot="start"></ion-icon>
+            <ion-label>New Pasta</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 </ion-app>
