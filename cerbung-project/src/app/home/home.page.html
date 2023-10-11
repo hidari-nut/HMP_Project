@@ -68,7 +68,7 @@
               that is the envy of every girl in the world. What could that
               secret be?
             </ion-item>
-            <ion-item>
+            <ion-item [routerLink]="['/read']" routerLinkActive="router-link-active">
               <ion-button class="button-read" size="large" slot="end">Read</ion-button>
             </ion-item>
           </ion-list>
@@ -107,8 +107,10 @@
               that is the envy of every girl in the world. What could that
               secret be?
             </ion-item>
-            <ion-item>
-              <ion-button class="button-read" size="large" slot="end">Read</ion-button>
+            <ion-item [routerLink]="['/read']" routerLinkActive="router-link-active" >
+              <ion-button class="button-read" size="large" slot="end">
+                Read
+              </ion-button>
             </ion-item>
           </ion-list>
         </ion-card-content>
