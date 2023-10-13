@@ -8,6 +8,18 @@ const routes: Routes = [
   },  {
     path: 'read',
     loadChildren: () => import('./read/read.module').then( m => m.ReadPageModule)
+  },
+  {
+    path: 'create1',
+    loadChildren: () => import('./create1/create1.module').then( m => m.Create1PageModule)
+  },
+  {
+    path: 'create2',
+    loadChildren: () => import('./create2/create2.module').then( m => m.Create2PageModule)
+  },
+  {
+    path: 'create3',
+    loadChildren: () => import('./create3/create3.module').then( m => m.Create3PageModule)
   }
 
 

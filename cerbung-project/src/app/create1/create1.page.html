@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" align="center">
+      Create Cerbung
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Create</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="create-form">
+    <ion-textarea
+      label="Cerbung Title"
+      labelPlacement="stacked"
+      fill="outline"
+      auto-grow="true"
+      placeholder="Enter Title">
+    </ion-textarea>
+
+    <ion-textarea
+      label="Short Description"
+      labelPlacement="stacked"
+      fill="outline"
+      auto-grow="true"
+      placeholder="Enter Description">
+    </ion-textarea>
+
+    <ion-textarea
+      label="Cerbung Image Cover"
+      labelPlacement="stacked"
+      fill="outline"
+      auto-grow="true"
+      placeholder="Enter Image Url">
+    </ion-textarea>
+
+    <ion-select
+      label="Cerbung Image Cover"
+      labelPlacement="stacked"
+      fill="outline"
+      auto-grow="true"
+      interface="popover"
+      placeholder="Select Genre">
+      <ion-select-option>Mystery</ion-select-option>
+      <ion-select-option>Slice of Life</ion-select-option>
+      <ion-select-option>Action</ion-select-option>
+      <ion-select-option>Politics</ion-select-option>
+      <ion-select-option>Drama</ion-select-option>
+    </ion-select>
+
+  </div>
+  <footer>
+
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+        </ion-col>
+        <ion-col align-items-center>
+          <ion-text>1 of 3</ion-text>
+        </ion-col>
+        <ion-col id="button-next-col">
+          <ion-button fill="outline"
+            [routerLink]="['/create2']"
+            routerLinkActive="router-link-active">
+            <ion-label>Next</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </footer>
+
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" align="center">
+      Create Cerbung
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Create Cerbung</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="create-form">
+    <ion-radio-group>
+      <ion-radio labelPlacement="end">Restricted<br />
+        <ion-text class="radio-desc">
+          (only approved users can contribute)
+        </ion-text>
+      </ion-radio><br />
+      <ion-radio labelPlacement="end">Public<br />
+        <ion-text class="radio-desc">
+          (any user can contribute)
+        </ion-text></ion-radio><br />
+    </ion-radio-group>
+
+    <div class="create-form-input">
+      <ion-textarea
+        label="Cerbung Title"
+        labelPlacement="stacked"
+        fill="outline"
+        auto-grow="true"
+        counter="true"
+        maxLength = 350
+        [counterFormatter]="customCounterFormatter"
+        placeholder="Enter Title">
+      </ion-textarea>
+    </div>
+
+  </div>
+
+  <footer>
+
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col id="button-prev-col">
+          <ion-button fill="outline"
+            [routerLink]="['/create1']"
+            routerLinkActive="router-link-active">
+            <ion-label>Prev</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col align-items-center>
+          <ion-text>2 of 3</ion-text>
+        </ion-col>
+        <ion-col id="button-next-col">
+          <ion-button fill="outline"
+            [routerLink]="['/create3']"
+            routerLinkActive="router-link-active">
+            <ion-label>Next</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </footer>
+
+</ion-content>
