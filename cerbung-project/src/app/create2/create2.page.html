@@ -19,9 +19,11 @@
     <ion-toolbar>
       <ion-title size="large">Create Cerbung</ion-title>
     </ion-toolbar>
+    
   </ion-header>
 
   <div class="create-form">
+    <ion-text>Access to this Cerbung</ion-text><br />
     <ion-radio-group>
       <ion-radio labelPlacement="end">Restricted<br />
         <ion-text class="radio-desc">
@@ -41,7 +43,7 @@
         fill="outline"
         auto-grow="true"
         counter="true"
-        maxLength = 350
+        maxLength=350
         [counterFormatter]="customCounterFormatter"
         placeholder="Enter Title">
       </ion-textarea>
