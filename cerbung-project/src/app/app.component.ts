@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  showTabBar: boolean = false;
+
   constructor(private router: Router) {}
 
-  isNotLoginPage(): boolean {
-    return this.router.url !== '/login';
+  ngOnInit() {
+    if (window.location.href.startsWith('http://localhost:') && window.location.pathname != '/home') {
+      this.showTabBar = false;
+    } else if (window.location.pathname === '/signup' ||  window.location.pathname === '/login') {
+      this.showTabBar = false;
+    } else {
+      this.showTabBar = true;
+    }
   }
 }

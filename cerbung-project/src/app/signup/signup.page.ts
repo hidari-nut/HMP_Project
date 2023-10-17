@@ -11,6 +11,8 @@ export class SignupPage implements OnInit {
   profilePictureURL: string;
   newPassword: string;
   confirmPassword: string;
+  showTabBar: boolean = false;
+
 
   constructor(private router: Router) {
     this.newUsername = '';

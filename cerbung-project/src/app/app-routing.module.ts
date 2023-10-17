@@ -6,6 +6,11 @@ const routes: Routes = [
   
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path:'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -27,10 +32,12 @@ const routes: Routes = [
   {
     path: 'create3',
     loadChildren: () => import('./create3/create3.module').then( m => m.Create3PageModule)
-  },  {
+  },
+  {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   }
+
 
 
 

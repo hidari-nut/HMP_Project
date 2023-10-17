@@ -1,32 +1,31 @@
 <ion-app>
   <ion-router-outlet id="main-content"></ion-router-outlet>
-
-    <!-- tabs.page.html -->
-    <ion-tabs *ngIf="isNotLoginPage()">
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home">
-          <ion-icon name="home-outline"></ion-icon>
-          <ion-label>Home</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="following">
-          <ion-icon name="book-outline"></ion-icon>
-          <ion-label>Following</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="create1">
-          <ion-icon name="create-outline"></ion-icon>
-          <ion-label>Create</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="users">
-          <ion-icon name="people-outline"></ion-icon>
-          <ion-label>Users</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="prefs">
-          <ion-icon name="settings-outline"></ion-icon>
-          <ion-label>Prefs</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-
+  <ion-tabs *ngIf="showTabBar !== false"> <!-- Use *ngIf to conditionally render the tabs -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="following">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Following</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="create1">
+        <ion-icon name="create-outline"></ion-icon>
+        <ion-label>Create</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="users">
+        <ion-icon name="people-outline"></ion-icon>
+        <ion-label>Users</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="prefs">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Prefs</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  
+   
   <ion-menu auto-hide="true" content-id="main-content">
     <ion-header>
       <ion-toolbar>

@@ -82,9 +82,5 @@ export class CerbungserviceService {
     },
   ]
 
-accounts = [{
-  accountName : 'Admin',
-  password : '1234'
-}]
   constructor() { }
 }

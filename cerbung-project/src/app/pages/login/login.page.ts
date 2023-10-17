@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CerbungserviceService } from "e:/Download/College/Hybrid Mobile Programming/HMP_Project/cerbung-project/src/app/cerbungservice.service";
+import { WritersService } from "e:/Download/College/Hybrid Mobile Programming/HMP_Project/cerbung-project/src/app/writers.service";
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
   password: string;
   showTabBar: boolean = false;
   
-  constructor(private route: ActivatedRoute, private cerbungservice: CerbungserviceService, private router: Router, private toastController: ToastController) {
+  constructor(private route: ActivatedRoute, private writersservice: WritersService, private router: Router, private toastController: ToastController) {
 
     this.username = '';
     this.password = '';
@@ -26,10 +26,12 @@ export class LoginPage implements OnInit {
 
   async onLogin() {
     const validAccount =
-      this.cerbungservice.accounts.find(account => account.accountName === this.username && account.password === this.password);
+      this.writersservice.accounts.find(account => account.accountName === this.username && account.password === this.password);
 
     if (validAccount) {
       this.router.navigate(['/home']);
+      window.history.replaceState(null, '', '/home'); //prevent back button
+
     } else {
       const toast = await this.toastController.create({
         message: 'Invalid username or password',
