@@ -1,6 +1,6 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" >
   <ion-toolbar>
-    <ion-title>Sign Up</ion-title>
+    <ion-title id="title" allign="center">Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,24 +10,43 @@
       <ion-title>Sign Up</ion-title>
     </ion-toolbar>
   </ion-header>
+
   
   <ion-content>
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input [(ngModel)]="newUsername" name="newUsername"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Profile Picture URL</ion-label>
-      <ion-input [(ngModel)]="profilePictureURL" name="profilePictureURL"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input [(ngModel)]="newPassword" name="newPassword" type="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input [(ngModel)]="confirmPassword" name="confirmPassword" type="password"></ion-input>
-    </ion-item>
-    <ion-button expand="full" (click)="onSignUp()">Submit</ion-button>
+
+  <div id="input">
+      <ion-input [(ngModel)]="newUsername" name="newUsername"
+        label="Username"
+        labelPlacement="stacked"
+        fill="outline"></ion-input>
+
+      <ion-input [(ngModel)]="profilePictureURL" name="profilePictureURL"
+        label="Picture URL"
+        labelPlacement="stacked"
+        fill="outline"></ion-input>
+
+
+      <ion-input [(ngModel)]="newPassword" name="newPassword" type="password"
+        label="Password"
+        labelPlacement="stacked"
+        fill="outline"></ion-input>
+
+
+      <ion-input [(ngModel)]="confirmPassword" name="confirmPassword" type="password"
+        label="Confirm Password"
+        labelPlacement="stacked"
+        fill="outline"></ion-input>
+
+  </div>
+
+  <footer>
+    <ion-button 
+    id="button-submit"
+    expand="block"
+    fill="solid"
+    (click)="onSignUp()">
+    Submit</ion-button>
+    
+  </footer>
   </ion-content>
 </ion-content>

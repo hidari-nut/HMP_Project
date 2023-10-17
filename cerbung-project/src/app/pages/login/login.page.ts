@@ -44,5 +44,6 @@ export class LoginPage implements OnInit {
 
   goToSignUp() {
     this.router.navigate(['/signup']);
+    window.history.replaceState(null, '', '/signup'); 
   }
 }

@@ -24,6 +24,7 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
   onSignUp() {
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
+    window.history.replaceState(null, '', '/login'); 
   }
 }

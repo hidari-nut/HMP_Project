@@ -80,6 +80,45 @@ export class CerbungserviceService {
         },
       ]
     },
+    {
+      title: "Ina's Secret to Cuteness",
+      cover_url: "https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/04/Ninomae-Inanis-Unravel-1.jpg",
+      paragraph_count: 3,
+      likes: "765",
+      genre: "Mystery",
+      restricted: false,
+      description: "Behind Ninomae Ina'nis' unparalleled cuteness " +
+        "lies a well kept secret that is the envy of every girl " +
+        "in the world. What could that secret be?",
+      author: "A-Chan",
+      create_date: "14 Oct 2023",
+      paragraphs: [
+        {
+          content: "Ninomae Ina'nis is undoubtably cute, " +
+            "but this ofcourse leaves us with many questions, " +
+            "such as how can anyone be this cute? " +
+            "What secret does she really keep from the world?",
+          author: "A-chan",
+          avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_faGvhanosGmtxjQClLxDzpWvnBk0Ecp7Xg&usqp=CAU"
+        },
+        {
+          content: "Such cuteness is simply impossible to replicate, " +
+            "many people would like to know her secret behind it. " +
+            "Up until now, we are unable to uncover her secrets, " +
+            "yet it is now free from her grasp.",
+          author: "MumeiMoomin",
+          avatar_url: "https://pbs.twimg.com/media/FtUUrrdaYAAo5vB.jpg"
+        },
+        {
+          content: "The secret? it's simple, those squishy hair of hers. " +
+            "The pinnacle of her cuteness, and her biggest secret, " +
+            "so much so that she lets nobody to touch it. I wonder " +
+            "what other secrets she keeps from everyone?",
+          author: "ManILoveFauna",
+          avatar_url: "https://pbs.twimg.com/media/FyUMpVjaQAE1RAJ.jpg:large"
+        },
+      ]
+    }
   ]
 
   constructor() { }
