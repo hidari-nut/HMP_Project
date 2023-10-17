@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  
+  
+  {
+    path: '',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
@@ -21,7 +27,12 @@ const routes: Routes = [
   {
     path: 'create3',
     loadChildren: () => import('./create3/create3.module').then( m => m.Create3PageModule)
+  },  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
   }
+
+
 
 
 ];

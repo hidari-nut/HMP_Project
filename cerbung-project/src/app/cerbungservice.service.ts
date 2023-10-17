@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -81,5 +82,9 @@ export class CerbungserviceService {
     },
   ]
 
+accounts = [{
+  accountName : 'Admin',
+  password : '1234'
+}]
   constructor() { }
 }

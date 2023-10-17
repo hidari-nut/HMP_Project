@@ -2,7 +2,7 @@
   <ion-router-outlet id="main-content"></ion-router-outlet>
 
     <!-- tabs.page.html -->
-    <ion-tabs>
+    <ion-tabs *ngIf="isNotLoginPage()">
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home">
           <ion-icon name="home-outline"></ion-icon>
