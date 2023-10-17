@@ -64,7 +64,7 @@
       </ion-row>
     </ion-grid>
 
-    <ion-checkbox labelPlacement="end">
+    <ion-checkbox labelPlacement="end" [(ngModel)]="check">
       I agree with the rules and policies in creating Cerbung.<br>
       This includes not containing racial slurs, discrimination,<br>
       religion, advertisements, and politics
@@ -89,6 +89,7 @@
         <ion-col id="button-next-col">
           <ion-button fill="outline"
             [routerLink]="['/home']"
+            [disabled] = "isNextButtonDisabled()"
             routerLinkActive="router-link-active">
             <ion-label>Publish</ion-label>
           </ion-button>

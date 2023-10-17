@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create3.page.scss'],
 })
 export class Create3Page implements OnInit {
-
+check: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+isNextButtonDisabled(): boolean{
+  if(this.check === false){
+    return true;
+  }
+  else{
+    return false
+  }
+}
 }

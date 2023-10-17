@@ -11,13 +11,14 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router) {}
 
+  
   ngOnInit() {
-    if (window.location.href.startsWith('http://localhost:') && window.location.pathname != '/home') {
-      this.showTabBar = false;
-    } else if (window.location.pathname === '/signup' ||  window.location.pathname === '/login') {
-      this.showTabBar = false;
-    } else {
-      this.showTabBar = true;
-    }
+  const pathsToHideTabBar = ['/login', '/signup'];
+
+  if (pathsToHideTabBar.includes(window.location.pathname)) {
+    this.showTabBar = false;
+  } else {
+    this.showTabBar = true;
+  }
   }
 }

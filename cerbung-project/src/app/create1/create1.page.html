@@ -22,7 +22,7 @@
   </ion-header>
 
   <div class="create-form">
-    <ion-textarea
+    <ion-textarea [(ngModel)]="cerbungTitle"
       label="Cerbung Title"
       labelPlacement="stacked"
       fill="outline"
@@ -31,6 +31,7 @@
     </ion-textarea>
 
     <ion-textarea
+      [(ngModel)]="shortDescription"
       label="Short Description"
       labelPlacement="stacked"
       fill="outline"
@@ -39,6 +40,7 @@
     </ion-textarea>
 
     <ion-textarea
+      [(ngModel)]="imageCover"
       label="Cerbung Image Cover"
       labelPlacement="stacked"
       fill="outline"
@@ -47,7 +49,8 @@
     </ion-textarea>
 
     <ion-select
-      label="Cerbung Image Cover"
+    [(ngModel)]="selectGenre"
+      label="Genre"
       labelPlacement="stacked"
       fill="outline"
       auto-grow="true"
@@ -72,6 +75,7 @@
         </ion-col>
         <ion-col id="button-next-col">
           <ion-button fill="outline"
+            [disabled]="isNextButtonDisabled()"
             [routerLink]="['/create2']"
             routerLinkActive="router-link-active">
             <ion-label>Next</ion-label>

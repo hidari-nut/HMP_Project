@@ -12,8 +12,16 @@ export class Create2Page implements OnInit {
   }
 
   constructor() { }
-
+  paragraph: string = "";
+  radio: boolean = false;
   ngOnInit() {
   }
 
+  isNextButtonDisabled(): boolean {
+    if (this.paragraph === '' || this.radio === false) {
+      return true;
+    }
+    else
+      return false
+  }
 }
