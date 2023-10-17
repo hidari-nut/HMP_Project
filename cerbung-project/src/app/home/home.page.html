@@ -36,8 +36,7 @@
   <div id="cards">
     <ion-list>
 
-      <ion-card *ngFor="let cerbung of cerbungs; let i=index">
-        <a [routerLink]="'/read/' + i">
+      <ion-card *ngFor="let cerbung of cerbungs; let i=index" routerLink="/read/{{i}}">
         <ion-img
           src={{cerbung.cover_url}}
           alt={{cerbung.cover_url}}>
@@ -72,7 +71,6 @@
             </ion-item>
           </ion-list>
         </ion-card-content>
-      </a>
       </ion-card>
     </ion-list>
   </div>

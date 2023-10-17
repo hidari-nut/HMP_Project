@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class WritersService {
   accounts = [{
-    accountName : 'Novella',
-    password : '1234'
+    accountName : 'novella',
+    password : 'novella'
   }]
   constructor() { }
 }

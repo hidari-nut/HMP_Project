@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WritersService } from "e:/Download/College/Hybrid Mobile Programming/HMP_Project/cerbung-project/src/app/writers.service";
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { WritersService } from 'src/app/writers.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ export class LoginPage implements OnInit {
   password: string;
   showTabBar: boolean = false;
   
-  constructor(private route: ActivatedRoute, private writersservice: WritersService, private router: Router, private toastController: ToastController) {
+  constructor(private route: ActivatedRoute, private writersservice: WritersService ,private router: Router, private toastController: ToastController) {
 
     this.username = '';
     this.password = '';
