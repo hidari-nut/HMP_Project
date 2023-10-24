@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create2',
@@ -11,7 +12,7 @@ export class Create2Page implements OnInit {
     return `${inputLength} of ${maxLength}`;
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
   paragraph: string = "";
   radio: boolean = false;
   ngOnInit() {
@@ -24,4 +25,15 @@ export class Create2Page implements OnInit {
     else
       return false
   }
+
+  navigateToCreate3() {
+    const state = window.history.state;
+    this.router.navigate(['/create3'], {
+      state: {
+        ...state,
+        paragraph: this.paragraph,
+        radio: this.radio
+      },
+    });
+}
 }

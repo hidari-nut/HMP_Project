@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create1',
@@ -13,7 +14,7 @@ export class Create1Page implements OnInit {
   selectGenre: string='';
   buttonStatus: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,5 +26,14 @@ export class Create1Page implements OnInit {
     else 
       return false
   }
-
+  navigateToCreate2() {
+    this.router.navigate(['/create2'], {
+      state: {
+        cerbungTitle: this.cerbungTitle,
+        shortDescription: this.shortDescription,
+        imageCover: this.imageCover,
+        selectGenre: this.selectGenre
+      },
+    });
+}
 }

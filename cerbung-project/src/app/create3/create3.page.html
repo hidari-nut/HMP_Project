@@ -15,51 +15,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Create Cerbung</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div class="create-summary">
-    <ion-text id="summary-title">Until the next: A sequel</ion-text><br />
+    <ion-text id="summary-title">{{ cerbungTitle }}</ion-text><br />
     <div id="chips">
       <ion-chip [outline]="true">
-        <ion-label type="floating">Mystery</ion-label>
-      </ion-chip>
-      <ion-chip [outline]="true">
-        <ion-label type="floating">Restricted</ion-label>
+        <ion-label type="floating">{{ selectGenre }}</ion-label>
       </ion-chip>
     </div>
-
-    <!-- <ion-list>
-      <ion-item>
-
-      </ion-item>
-      <ion-item>
-        
-      </ion-item>
-    </ion-list> -->
 
     <ion-grid>
       <ion-row>
         <ion-text>
-          Consequat mollit mollit cillum ea sint voluptate minim
-          minim est laboris fugiat reprehenderit dolor. Ex velit velit
-          labore ea. Nulla consequat commodo commodo pariatur ipsum
-          consequat eu laborum. Nostrud qui minim qui sint.
-          Reprehenderit culpa in aute cillum incididunt pariatur
-          incididunt in dolore reprehenderit velit cillum pariatur eu.
+          {{ shortDescription }}
         </ion-text>
-      </ion-row>
-      <ion-row>
         <ion-text>
-          Consequat mollit mollit cillum ea sint voluptate minim
-          minim est laboris fugiat reprehenderit dolor. Ex velit velit
-          labore ea. Nulla consequat commodo commodo pariatur ipsum
-          consequat eu laborum. Nostrud qui minim qui sint.
-          Reprehenderit culpa in aute cillum incididunt pariatur
-          incididunt in dolore reprehenderit velit cillum pariatur eu.
+          {{ paragraph }}
         </ion-text>
       </ion-row>
     </ion-grid>
@@ -69,11 +39,9 @@
       This includes not containing racial slurs, discrimination,<br>
       religion, advertisements, and politics
     </ion-checkbox>
-
   </div>
 
   <footer>
-
     <ion-grid>
       <ion-row class="ion-align-items-center">
         <ion-col id="button-prev-col">
@@ -89,14 +57,12 @@
         <ion-col id="button-next-col">
           <ion-button fill="outline"
             [routerLink]="['/home']"
-            [disabled] = "isNextButtonDisabled()"
+            [disabled]="isNextButtonDisabled()"
             routerLinkActive="router-link-active">
             <ion-label>Publish</ion-label>
           </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
-
   </footer>
-
 </ion-content>

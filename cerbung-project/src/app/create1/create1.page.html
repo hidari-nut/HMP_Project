@@ -73,8 +73,8 @@
         <ion-col align-items-center>
           <ion-text>1 of 3</ion-text>
         </ion-col>
-        <ion-col id="button-next-col">
-          <ion-button fill="outline"
+        <ion-col id="button-next-col"> 
+          <ion-button fill="outline" (click)="navigateToCreate2()"
             [disabled]="isNextButtonDisabled()"
             [routerLink]="['/create2']"
             routerLinkActive="router-link-active">

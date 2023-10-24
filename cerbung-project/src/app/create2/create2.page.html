@@ -68,7 +68,7 @@
           <ion-text>2 of 3</ion-text>
         </ion-col>
         <ion-col id="button-next-col">
-          <ion-button fill="outline"
+          <ion-button fill="outline" (click)="navigateToCreate3()"
             [routerLink]="['/create3']"
             [disabled] = "isNextButtonDisabled()"
             routerLinkActive="router-link-active">
