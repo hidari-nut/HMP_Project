@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" align="center">
+      Create Cerbung
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="create-summary">
+    <ion-text id="summary-title">{{ cerbungTitle }}</ion-text><br />
+    <div id="chips">
+      <ion-chip [outline]="true">
+        <ion-label type="floating">{{ selectGenre }}</ion-label>
+      </ion-chip>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-text>
+          {{ shortDescription }}
+        </ion-text>
+        <ion-text>
+          {{ paragraph }}
+        </ion-text>
+      </ion-row>
+    </ion-grid>
+
+    <ion-checkbox labelPlacement="end" [(ngModel)]="check">
+      I agree with the rules and policies in creating Cerbung.<br>
+      This includes not containing racial slurs, discrimination,<br>
+      religion, advertisements, and politics
+    </ion-checkbox>
+  </div>
+
+  <footer>
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col id="button-prev-col">
+          <ion-button fill="outline"
+            [routerLink]="['/create2']"
+            routerLinkActive="router-link-active">
+            <ion-label>Prev</ion-label>
+          </ion-button>
+        </ion-col>
+        <ion-col align-items-center>
+          <ion-text>3 of 3</ion-text>
+        </ion-col>
+        <ion-col id="button-next-col">
+          <ion-button fill="outline"
+            [routerLink]="['/home']"
+            [disabled]="isNextButtonDisabled()"
+            routerLinkActive="router-link-active">
+            <ion-label>Publish</ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </footer>
+</ion-content>

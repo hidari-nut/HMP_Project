@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CerbungserviceService } from '../cerbungservice.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  genrelist: any[] = [];
+
+  cerbungs: any[] = [];
+
+  constructor(private cerbungservice: CerbungserviceService) {
+    this.genrelist = this.cerbungservice.genrelist;
+    this.cerbungs = this.cerbungservice.cerbungs;
+  }
 
   ngOnInit() {
   }

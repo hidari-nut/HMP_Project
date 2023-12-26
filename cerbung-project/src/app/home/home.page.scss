@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+
 #container {
     text-align: center;
   
@@ -24,4 +26,40 @@
   
   #container a {
     text-decoration: none;
+  }
+
+  #title{
+    font-weight: bold;
+  }
+
+  #chips ion-chip{
+    border-radius: 10px;
+  }
+
+  #chips ion-label{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #cards ion-card{
+    border-radius: 20px;
+  }
+
+  #cards #counter{
+    text-align: left;
+  }
+
+  #cards .counters ion-icon{
+    font-size: 24px;
+    text-align: left;
+    color: black;
+  }
+  #cards .counters ion-label{
+    font-size: 16px;
+  }
+
+  #cards .button-read{
+    text-transform: none;
+    --border-radius: 30px;
+    --background: #6750A4;
   }

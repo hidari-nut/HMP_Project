@@ -1,0 +1,106 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" align="center">
+      Cerbung Read
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Read</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="cerbung-profile">
+    <ion-card class="cerbung-image">
+      <ion-img
+        src={{cerbungs[index].cover_url}}
+        alt={{cerbungs[index].cover_url}}>
+      </ion-img>
+    </ion-card>
+    <ion-card-title>
+      {{cerbungs[index].title}}
+    </ion-card-title>
+
+    <div class="counters">
+      <ion-chip [outline]="true">
+        <ion-icon aria-hidden="true" name="list"></ion-icon>
+        <ion-label>{{cerbungs[index].paragraph_count}}</ion-label>
+      </ion-chip>
+      <ion-chip [outline]="true">
+        <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
+        <ion-label>{{cerbungs[index].likes}}</ion-label>
+      </ion-chip>
+    </div>
+    <div id="chips">
+      <ion-chip [outline]="true">
+        <ion-label type="floating">{{cerbungs[index].genre}}</ion-label>
+      </ion-chip>
+
+      <ion-chip [outline]="true" *ngIf="cerbungs[index].restricted == true">
+        <ion-label type="floating">
+          Restricted
+        </ion-label>
+      </ion-chip>
+    </div>
+
+    <ion-item class="cerbung-profile-subtitles">
+      <ion-card-subtitle slot="start">by {{cerbungs[index].author}}</ion-card-subtitle>
+      <ion-card-subtitle slot="end">{{cerbungs[index].create_date}}</ion-card-subtitle>
+    </ion-item>
+  </ion-card>
+
+  <div class="cerbung-submission">
+    <ion-card class="paragraph" *ngFor="let paragraph of getParagraphs()">
+      <ion-item>
+        {{paragraph.content}}
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img
+            alt="{{paragraph.author}} avatar"
+            src={{paragraph.avatar_url}} />
+        </ion-avatar>
+        <ion-label>{{paragraph.author}}</ion-label>
+
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon name="heart-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div class="cerbung-interactions">
+    <ion-buttons>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="outline" color="dark">
+              <ion-icon name="add-outline" slot="start"></ion-icon>
+              <ion-label>Follow</ion-label>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button fill="outline" color="dark">
+              <ion-icon name="add-outline" slot="start"></ion-icon>
+              <ion-label>Request to Contribute</ion-label>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-buttons>
+  </div>
+
+</ion-content>
