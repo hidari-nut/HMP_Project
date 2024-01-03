@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title">
+      Users
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title size="large">Users</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-segment [(ngModel)]="viewType">
+    <ion-segment-button value="mostliked">
+      <ion-label>Most Liked</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="following">
+      <ion-label>Following</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div id="container">
+    <div id="cards" *ngIf="viewType==='mostliked'">
+      <ion-card *ngFor="let writer of writers; let i=index" routerLink="/accountview/">
+
+        <ion-card-header>
+          <ion-avatar>
+            <img alt={{writer.pic_url}} src={{writer.pic_url}} />
+          </ion-avatar>
+          <ion-card-title>{{writer.accountName}}</ion-card-title>
+          <ion-card-subtitle>Since : {{writer.created_year}}</ion-card-subtitle>
+          <ion-card-subtitle style="font-weight: bold;">{{writer.total_like}} Likes</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <div *ngIf="viewType==='following'">
+      <ion-card *ngFor="let writer of writers; let i=index" routerLink="/accountview/">
+        <ion-card-header>
+          <ion-avatar>
+            <img alt={{writer.pic_url}} src={{writer.pic_url}} />
+          </ion-avatar>
+          <ion-card-title>{{writer.accountName}}</ion-card-title>
+          <ion-card-subtitle>Since : {{writer.created_year}}</ion-card-subtitle>
+          <ion-card-subtitle style="font-weight: bold;">{{writer.total_like}} Likes</ion-card-subtitle>
+          <ion-card-subtitle>Last Update : {{writer.latest_post}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+  </div>
+</ion-content>

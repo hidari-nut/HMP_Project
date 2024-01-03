@@ -1,5 +1,45 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto');
 
+ion-card {
+  border-radius: 20px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+ion-card ion-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ion-card ion-avatar {
+  width: 100px;
+  height: 100px; 
+  margin-bottom: 10px;
+}
+
+ion-card ion-card-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+ion-card ion-card-subtitle {
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+ion-card ion-card-content {
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold; 
+}
+
 #container {
     text-align: center;
   
@@ -41,10 +81,6 @@
     padding-right: 5px;
   }
 
-  #cards ion-card{
-    border-radius: 20px;
-  }
-
   #cards #counter{
     text-align: left;
   }
@@ -57,9 +93,6 @@
   #cards .counters ion-label{
     font-size: 16px;
   }
-
-  #cards .button-read{
-    text-transform: none;
-    --border-radius: 30px;
-    --background: #6750A4;
-  }
+  
+  
+  

@@ -2,19 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { CerbungserviceService } from '../cerbungservice.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-following',
+  templateUrl: './following.page.html',
+  styleUrls: ['./following.page.scss'],
 })
-export class HomePage implements OnInit {
-
+export class FollowingPage implements OnInit {
   genrelist: any[] = [];
 
   cerbungs: any[] = [];
 
   constructor(private cerbungservice: CerbungserviceService) {
     this.genrelist = this.cerbungservice.genrelist;
-    // this.cerbungs = this.cerbungservice.cerbungs;
     this.cerbungservice.cerbungs().subscribe(
       (data)=> {
           this.cerbungs=data;

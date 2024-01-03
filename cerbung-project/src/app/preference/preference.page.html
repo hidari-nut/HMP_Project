@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="notification-button">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" class="header-title">
+      Preference
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title size="large">Preference</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="preference_acc">
+
+    <ion-avatar>
+      <img alt='https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/04/Ninomae-Inanis-Unravel-1.jpg'
+        src='https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/04/Ninomae-Inanis-Unravel-1.jpg' />
+    </ion-avatar>
+
+
+    <ion-textarea [(ngModel)]="accountName" label="Account Name" labelPlacement="stacked" fill="outline"
+      auto-grow="true">
+    </ion-textarea>
+
+    <ion-textarea [(ngModel)]="picUrl" label="Picture Url" labelPlacement="stacked" fill="outline"
+      auto-grow="true">
+    </ion-textarea>
+
+    <div class="notification-sec">
+      <ion-label>Notification</ion-label>
+      <ion-button class="notification-button" [class.activated]="isActiveNotif" (click)="toggleStatusNotif()"
+        fill="outline">
+        {{ isActiveNotif ? 'Active' : 'Not Active' }}
+      </ion-button>
+    </div>
+
+    <div class="mode-sec">
+      <ion-label>Dark Mode</ion-label>
+      <ion-button class="mode-button" [class.activated]="isActiveMode" (click)="toggleStatusMode()" fill="outline">
+        {{ isActiveMode ? 'Light' : 'Dark' }}
+      </ion-button>
+    </div>
+
+    <ion-input [(ngModel)]="oldPass" name="oldPassword" type="password" label="Old Password" labelPlacement="stacked"
+      fill="outline">
+    </ion-input>
+
+    <ion-input [(ngModel)]="newPass" name="newPassword" type="password" label="New Password" labelPlacement="stacked"
+      fill="outline">
+    </ion-input>
+
+    <ion-input [(ngModel)]="rePass" name="rePassword" type="password" label="Retype Password" labelPlacement="stacked"
+      fill="outline">
+    </ion-input>
+
+    <ion-item>
+      <ion-button class="button-save" slot="end">SAVE</ion-button>
+    </ion-item>
+  </div>
+</ion-content>

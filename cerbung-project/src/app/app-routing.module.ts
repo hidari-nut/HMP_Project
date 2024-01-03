@@ -35,7 +35,23 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },  {
+    path: 'following',
+    loadChildren: () => import('./following/following.module').then( m => m.FollowingPageModule)
+  },
+  {
+    path: 'preference',
+    loadChildren: () => import('./preference/preference.module').then( m => m.PreferencePageModule)
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
+  },
+  {
+    path: 'accountview',
+    loadChildren: () => import('./accountview/accountview.module').then( m => m.AccountviewPageModule)
   }
+
 
 
 ];
