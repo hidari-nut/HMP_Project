@@ -8,13 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class CerbungserviceService {
 
-  genrelist = ["Mystery", "Crime", "Action", "Comedy"];
+  // genrelist = ["Mystery", "Crime", "Action", "Comedy"];
   
   notifications = [
     {
       notification_id: 1,
       notification_receiver_id: 101,
-      notification_user_id: 201,
+      notification_user_id: 'Novela',
       notification_type_id: 1,
       notification_cerbung_id: 301,
       notification_date_send: '2024-01-03'
@@ -22,7 +22,7 @@ export class CerbungserviceService {
     {
       notification_id: 2,
       notification_receiver_id: 102,
-      notification_user_id: 202,
+      notification_user_id: 'Fauna',
       notification_type_id: 2,
       notification_cerbung_id: 302,
       notification_date_send: '2024-01-02'
@@ -30,7 +30,7 @@ export class CerbungserviceService {
     {
       notification_id: 3,
       notification_receiver_id: 103,
-      notification_user_id: 203,
+      notification_user_id: 'Noel',
       notification_type_id: 3,
       notification_cerbung_id: 303,
       notification_date_send: '2024-01-01'
@@ -38,7 +38,7 @@ export class CerbungserviceService {
     {
       notification_id: 4,
       notification_receiver_id: 104,
-      notification_user_id: 204,
+      notification_user_id: 'Mori',
       notification_type_id: 1,
       notification_cerbung_id: 304,
       notification_date_send: '2024-01-04'
@@ -46,7 +46,7 @@ export class CerbungserviceService {
     {
       notification_id: 5,
       notification_receiver_id: 105,
-      notification_user_id: 205,
+      notification_user_id: 'Chloe',
       notification_type_id: 2,
       notification_cerbung_id: 305,
       notification_date_send: '2024-01-05'
@@ -54,8 +54,10 @@ export class CerbungserviceService {
   ];
   
 
-
   constructor(private http: HttpClient) { }
+  readGenres(): Observable<any> {
+    return this.http.get("https://ubaya.me/native/160421069/project/read_genres.php");
+  }
   readCerbungs(): Observable<any> {
     return this.http.get("https://ubaya.me/native/160421069/project/read_cerbungs.php");
   }

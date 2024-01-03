@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   cerbungs: any[] = [];
 
   constructor(private cerbungservice: CerbungserviceService) {
-    this.genrelist = this.cerbungservice.genrelist;
+    //this.genrelist = this.cerbungservice.genrelist;
     //this.cerbungs = this.cerbungservice.cerbungs;
   }
 
@@ -23,6 +23,14 @@ export class HomePage implements OnInit {
         if (response && response.data) {
           console.log(response.data);
           this.cerbungs = response.data;
+        }
+      }
+    ); 
+    this.cerbungservice.readGenres().subscribe(
+      (response) => {
+        if (response && response.data) {
+          console.log(response.data);
+          this.genrelist = response.data;
         }
       }
     );
