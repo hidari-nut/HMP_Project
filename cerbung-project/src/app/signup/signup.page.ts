@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CerbungserviceService } from '../cerbungservice.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupPage implements OnInit {
   showTabBar: boolean = false;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cerbungservice: CerbungserviceService) {
     this.newUsername = '';
     this.profilePictureURL = '';
     this.newPassword = '';
@@ -24,7 +25,18 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
   onSignUp() {
-    this.router.navigate(['login']);
-    window.history.replaceState(null, '', '/login'); 
+    this.cerbungservice.signUp(this.newUsername, this.newPassword, this.profilePictureURL).subscribe(
+      (response:any) => {
+        if(response.read === "OK"){
+          alert("Sign up Successful")
+
+          this.router.navigate(['login']);
+          window.history.replaceState(null, '', '/login'); 
+        }
+        else{
+          alert("Sign up failed! Please try again later.")
+        }
+      }
+    )
   }
 }
