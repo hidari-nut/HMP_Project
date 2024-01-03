@@ -21,7 +21,7 @@ export class ReadPage implements OnInit {
         this.index = params['index']
       }
     )
-    this.cerbungservice.cerbungs().subscribe(
+    this.cerbungservice.readCerbungs().subscribe(
       (data)=> {
           this.cerbungs=data;
         }  );

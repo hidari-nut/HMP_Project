@@ -50,6 +50,10 @@ const routes: Routes = [
   {
     path: 'accountview',
     loadChildren: () => import('./accountview/accountview.module').then( m => m.AccountviewPageModule)
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
   }
 
 

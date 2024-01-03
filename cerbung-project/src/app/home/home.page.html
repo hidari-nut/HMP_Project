@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button routerLink="/notification/">
         <ion-icon name="notifications-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -65,9 +65,6 @@
           <ion-list>
             <ion-item>
               {{cerbung.cerbung_description}}
-            </ion-item>
-            <ion-item routerLink="/read/{{i}}">
-              <ion-button class="button-read" size="large" slot="end">Read</ion-button>
             </ion-item>
           </ion-list>
         </ion-card-content>

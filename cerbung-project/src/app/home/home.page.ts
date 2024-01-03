@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.cerbungservice.cerbungs().subscribe(
+    this.cerbungservice.readCerbungs().subscribe(
       (response) => {
         if (response && response.data) {
           console.log(response.data);
