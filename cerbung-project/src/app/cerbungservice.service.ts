@@ -89,10 +89,6 @@ export class CerbungserviceService {
     return this.http.post("https://ubaya.me/native/160421069/project/create_user.php", urlEncodedData, { headers });
   }
 
-  readGenres(): Observable<any> {
-    return this.http.get("https://ubaya.me/native/160421069/project/read_genres.php");
-  }
-
   createCerbung(p_title: string, p_description: string, p_display_picture_url: string, p_restricted: number, 
     p_genre_id: number, p_user_id: number, p_paragraph: string){
       const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
