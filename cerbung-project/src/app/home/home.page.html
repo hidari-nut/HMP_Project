@@ -38,25 +38,25 @@
 
       <ion-card *ngFor="let cerbung of cerbungs; let i=index" routerLink="/read/{{i}}">
         <ion-img
-          src={{cerbung.cover_url}}
-          alt={{cerbung.cover_url}}>
+          src={{cerbung.cerbung_display_picture}}
+          alt={{cerbung.cerbung_display_picture}}>
         </ion-img>
         <ion-card-header>
           <ion-card-title>
-            {{cerbung.title}}
+            {{cerbung.cerbung_title}}
           </ion-card-title>
           <ion-card-subtitle>
-            by {{cerbung.author}}
+            by {{cerbung.user_username}}
           </ion-card-subtitle>
 
           <div class="counters">
             <ion-chip [outline]="true">
               <ion-icon aria-hidden="true" name="list"></ion-icon>
-              <ion-label>{{cerbung.paragraph_count}}</ion-label>
+              <ion-label>{{cerbung.cerbung_contribution_count}}</ion-label>
             </ion-chip>
             <ion-chip [outline]="true">
               <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
-              <ion-label>{{cerbung.likes}}</ion-label>
+              <ion-label>{{cerbung.cerbung_like}}</ion-label>
             </ion-chip>
           </div>
         </ion-card-header>
@@ -64,7 +64,7 @@
         <ion-card-content>
           <ion-list>
             <ion-item>
-              {{cerbung.description}}
+              {{cerbung.cerbung_description}}
             </ion-item>
             <ion-item routerLink="/read/{{i}}">
               <ion-button class="button-read" size="large" slot="end">Read</ion-button>

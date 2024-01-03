@@ -12,14 +12,16 @@ export class FollowingPage implements OnInit {
   cerbungs: any[] = [];
 
   constructor(private cerbungservice: CerbungserviceService) {
-    this.genrelist = this.cerbungservice.genrelist;
-    this.cerbungservice.cerbungs().subscribe(
-      (data)=> {
-          this.cerbungs=data;
-        }  );
   }
 
   ngOnInit() {
+    this.cerbungservice.cerbungs().subscribe(
+      (response) => {
+        if (response && response.data) {
+          console.log(response.data);
+          this.cerbungs = response.data;
+        }
+      }
+    );
   }
-
 }

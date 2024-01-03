@@ -14,14 +14,19 @@ export class HomePage implements OnInit {
 
   constructor(private cerbungservice: CerbungserviceService) {
     this.genrelist = this.cerbungservice.genrelist;
-    // this.cerbungs = this.cerbungservice.cerbungs;
-    this.cerbungservice.cerbungs().subscribe(
-      (data)=> {
-          this.cerbungs=data;
-        }  );
+    //this.cerbungs = this.cerbungservice.cerbungs;
   }
 
   ngOnInit() {
+    this.cerbungservice.cerbungs().subscribe(
+      (response) => {
+        if (response && response.data) {
+          console.log(response.data);
+          this.cerbungs = response.data;
+        }
+      }
+    );
   }
+  
 
 }
