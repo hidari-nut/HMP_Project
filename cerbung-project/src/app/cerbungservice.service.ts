@@ -39,7 +39,7 @@ export class CerbungserviceService {
       notification_id: 4,
       notification_receiver_id: 104,
       notification_user_id: 'Mori',
-      notification_type_id: 1,
+      notification_type_id: 3,
       notification_cerbung_id: 304,
       notification_date_send: '2024-01-04'
     },

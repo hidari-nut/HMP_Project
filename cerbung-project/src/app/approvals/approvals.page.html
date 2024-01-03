@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/notification/">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" align="center">
+      Approvals
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title size="large">Approvals</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-avatar>
+        <img alt='https://embed.pixiv.net/artwork.php?illust_id=110509569' src='https://embed.pixiv.net/artwork.php?illust_id=110509569' />
+      </ion-avatar>
+      <ion-card-title>Novela wants to contribute in: 'The Great Flip: The Sugar-coated Fraud'</ion-card-title>
+      <img src="https://www.worldatlas.com/r/w1200-q80/upload/64/de/e3/shutterstock-520729021.jpg" alt="Image" class="card-image" />
+      <ion-card-subtitle>Request sent: 2024-01-03</ion-card-subtitle>
+      
+      <ion-card-content id="buttons-container">
+        <ion-button expand="block" class="button-approve" routerLink="/notification/">APPROVE</ion-button>
+        <ion-button expand="block" class="button-decline" routerLink="/notification/">DECLINE</ion-button>
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>
