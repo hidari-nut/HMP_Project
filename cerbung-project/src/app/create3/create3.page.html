@@ -56,7 +56,7 @@
         </ion-col>
         <ion-col id="button-next-col">
           <ion-button fill="outline"
-            [routerLink]="['/home']"
+            (click) = "createCerbung()"
             [disabled]="isNextButtonDisabled()"
             routerLinkActive="router-link-active">
             <ion-label>Publish</ion-label>
