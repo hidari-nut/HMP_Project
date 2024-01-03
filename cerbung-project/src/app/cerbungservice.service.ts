@@ -59,7 +59,7 @@ export class CerbungserviceService {
   readCerbungs(): Observable<any> {
     return this.http.get("https://ubaya.me/native/160421069/project/read_cerbungs.php");
   }
-  readCerbungDetail(p_user_id:number, p_cerbung_id:number): Observable<any> {
+  readCerbungDetail(p_user_id:number, p_cerbung_id:number){
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const body = new URLSearchParams();
     body.set('user_id', p_user_id.toString()); 

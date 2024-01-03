@@ -36,7 +36,8 @@ export class LoginPage implements OnInit {
           this.currentUser = response.data
 
           //Store user in local Storage
-          localStorage.setItem("app_current_user", this.currentUser)
+          localStorage.setItem("app_current_user", JSON.stringify(this.currentUser))
+          // localStorage.setItem("app_current_user_id", this.currentUser.user_id)
 
           this.router.navigate(['/home']);
           window.history.replaceState(null, '', '/home'); //prevent back button
