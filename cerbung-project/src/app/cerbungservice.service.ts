@@ -59,6 +59,14 @@ export class CerbungserviceService {
   readCerbungs(): Observable<any> {
     return this.http.get("https://ubaya.me/native/160421069/project/read_cerbungs.php");
   }
+  readCerbungDetail(p_user_id:number, p_cerbung_id:number): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('user_id', p_user_id.toString()); 
+    body.set('cerbung_id', p_cerbung_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/read_cerbung_detail.php", urlEncodedData, { headers });
+  }
 
   login(p_username: string, p_password: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });

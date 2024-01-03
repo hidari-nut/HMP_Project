@@ -24,8 +24,8 @@
   <ion-card class="cerbung-profile">
     <ion-card class="cerbung-image">
       <ion-img
-        src={{cerbungs[index].cover_url}}
-        alt={{cerbungs[index].cover_url}}>
+        src={{cerbungs.cerbung_display_picture}}
+        alt={{cerbungs.cerbung_display_picture}}>
       </ion-img>
     </ion-card>
     <ion-card-title>
@@ -35,19 +35,19 @@
     <div class="counters">
       <ion-chip [outline]="true">
         <ion-icon aria-hidden="true" name="list"></ion-icon>
-        <ion-label>{{cerbungs[index].paragraph_count}}</ion-label>
+        <ion-label>{{cerbungs.paragraph_count}}</ion-label>
       </ion-chip>
       <ion-chip [outline]="true">
         <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
-        <ion-label>{{cerbungs[index].likes}}</ion-label>
+        <ion-label>{{cerbungs.cerbung_like}}</ion-label>
       </ion-chip>
     </div>
     <div id="chips">
       <ion-chip [outline]="true">
-        <ion-label type="floating">{{cerbungs[index].genre}}</ion-label>
+        <ion-label type="floating">{{cerbungs.genre_name}}</ion-label>
       </ion-chip>
 
-      <ion-chip [outline]="true" *ngIf="cerbungs[index].restricted == true">
+      <ion-chip [outline]="true" *ngIf="cerbungs.cerbung_restricted == true">
         <ion-label type="floating">
           Restricted
         </ion-label>
@@ -55,23 +55,23 @@
     </div>
 
     <ion-item class="cerbung-profile-subtitles">
-      <ion-card-subtitle slot="start">by {{cerbungs[index].author}}</ion-card-subtitle>
-      <ion-card-subtitle slot="end">{{cerbungs[index].create_date}}</ion-card-subtitle>
+      <ion-card-subtitle slot="start">by {{cerbungs.user_username}}</ion-card-subtitle>
+      <ion-card-subtitle slot="end">{{cerbungs.cerbung_created_date}}</ion-card-subtitle>
     </ion-item>
   </ion-card>
 
   <div class="cerbung-submission">
     <ion-card class="paragraph" *ngFor="let paragraph of getParagraphs()">
       <ion-item>
-        {{paragraph.content}}
+        {{cerbungs.contribution.content}}
       </ion-item>
       <ion-item>
         <ion-avatar slot="start">
           <img
-            alt="{{paragraph.author}} avatar"
-            src={{paragraph.avatar_url}} />
+            alt="{{cerbungs.contribution.author}} avatar"
+            src={{cerbungs.contribution.avatar_url}} />
         </ion-avatar>
-        <ion-label>{{paragraph.author}}</ion-label>
+        <ion-label>{{cerbungs.contribution.author}}</ion-label>
 
         <ion-buttons slot="end">
           <ion-button>

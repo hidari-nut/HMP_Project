@@ -9,26 +9,30 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ReadPage implements OnInit {
 
-  cerbungs: any[] = [];
+  current_user:any={};
+  cerbung_id: number = 0;
+  cerbungs: any = {};
   index = 0;
 
   constructor(private route: ActivatedRoute, private cerbungservice: CerbungserviceService) {
+    this.current_user = localStorage.getItem("app_current_user")
   }
 
-  ngOnInit() {
-    this.route.params.subscribe(
-      params => {
-        this.index = params['index']
+
+ngOnInit() {
+  this.route.params.subscribe(
+    params => {
+    this.cerbung_id = params['index']; 
+    this.cerbungservice.readCerbungDetail(this.current_user.user_id, this.cerbung_id).subscribe(
+      (response: any) => {
+        this.cerbungs = response.data
       }
-    )
-    this.cerbungservice.readCerbungs().subscribe(
-      (data)=> {
-          this.cerbungs=data;
-        }  );
-  }
+    );
+  });
+}
 
-  getParagraphs() {
-    return this.cerbungs[this.index].paragraphs;
-  }
+getParagraphs() {
+  return this.cerbungs.contributions;
+}
 
 }
