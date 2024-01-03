@@ -37,6 +37,9 @@ export class LoginPage implements OnInit {
 
           //Store user in local Storage
           localStorage.setItem("app_current_user", this.currentUser)
+
+          this.router.navigate(['/home']);
+          window.history.replaceState(null, '', '/home'); //prevent back button
         }
         else{
           alert("Login failed! Please ensure that your username and password is correct.")

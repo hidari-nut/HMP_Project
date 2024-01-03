@@ -25,18 +25,24 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
   onSignUp() {
-    this.cerbungservice.signUp(this.newUsername, this.newPassword, this.profilePictureURL).subscribe(
-      (response:any) => {
-        if(response.read === "OK"){
-          alert("Sign up Successful")
 
-          this.router.navigate(['login']);
-          window.history.replaceState(null, '', '/login'); 
+    if(this.newPassword != this.confirmPassword){
+      alert("Password confirmation does not match.")
+    }
+    else{
+      this.cerbungservice.signUp(this.newUsername, this.newPassword, this.profilePictureURL).subscribe(
+        (response:any) => {
+          if(response.result === "OK"){
+            alert("Sign up Successful")
+  
+            this.router.navigate(['login']);
+            window.history.replaceState(null, '', '/login'); 
+          }
+          else{
+            alert("Sign up failed! Please try again later.")
+          }
         }
-        else{
-          alert("Sign up failed! Please try again later.")
-        }
-      }
-    )
+      )
+    }
   }
 }
