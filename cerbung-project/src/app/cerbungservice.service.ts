@@ -61,7 +61,7 @@ export class CerbungserviceService {
   readCerbungs(): Observable<any> {
     return this.http.get("https://ubaya.me/native/160421069/project/read_cerbungs.php");
   }
-  readCerbungDetail(p_user_id:number, p_cerbung_id:number): Observable<any> {
+  readCerbungDetail(p_user_id:number, p_cerbung_id:number){
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const body = new URLSearchParams();
     body.set('user_id', p_user_id.toString()); 
@@ -88,4 +88,19 @@ export class CerbungserviceService {
     const urlEncodedData = body.toString();
     return this.http.post("https://ubaya.me/native/160421069/project/create_user.php", urlEncodedData, { headers });
   }
+
+  createCerbung(p_title: string, p_description: string, p_display_picture_url: string, p_restricted: number, 
+    p_genre_id: number, p_user_id: number, p_paragraph: string){
+      const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+      const body = new URLSearchParams();
+      body.set('title', p_title); 
+      body.set('description', p_description);
+      body.set('display_picture', p_display_picture_url);
+      body.set('restricted', p_restricted.toString()); 
+      body.set('genres_id', p_genre_id.toString());
+      body.set('user_id', p_user_id.toString());
+      body.set('paragraph', p_paragraph);
+      const urlEncodedData = body.toString();
+      return this.http.post("https://ubaya.me/native/160421069/project/create_cerbung.php", urlEncodedData, { headers });
+    }
 }

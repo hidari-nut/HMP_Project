@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CerbungserviceService } from '../cerbungservice.service';
 
 @Component({
   selector: 'app-create1',
@@ -8,15 +9,29 @@ import { Router } from '@angular/router';
 })
 export class Create1Page implements OnInit {
 
+  genres: any[] = [];
+
   cerbungTitle: string = '';
   shortDescription: string = '';
   imageCover: string = '';
-  selectGenre: string='';
+  selectGenre: any={};
   buttonStatus: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cerbungservice: CerbungserviceService) { }
 
   ngOnInit() {
+    this.readGenres()
+  }
+
+  readGenres(){
+    this.cerbungservice.readGenres().subscribe(
+      (response) => {
+        if (response.result == "OK") {
+          console.log(response.data);
+          this.genres = response.data;
+        }
+      }
+    );
   }
 
   isNextButtonDisabled(): boolean {
@@ -32,7 +47,7 @@ export class Create1Page implements OnInit {
         cerbungTitle: this.cerbungTitle,
         shortDescription: this.shortDescription,
         imageCover: this.imageCover,
-        selectGenre: this.selectGenre
+        selectGenre: this.selectGenre,
       },
     });
 }

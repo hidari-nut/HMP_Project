@@ -56,11 +56,13 @@
       auto-grow="true"
       interface="popover"
       placeholder="Select Genre">
-      <ion-select-option>Mystery</ion-select-option>
+
+      <ion-select-option *ngFor="let genre of genres" [value]="genre">{{genre.genre_name}}</ion-select-option>
+      <!-- <ion-select-option>Mystery</ion-select-option>
       <ion-select-option>Slice of Life</ion-select-option>
       <ion-select-option>Action</ion-select-option>
       <ion-select-option>Politics</ion-select-option>
-      <ion-select-option>Drama</ion-select-option>
+      <ion-select-option>Drama</ion-select-option> -->
     </ion-select>
 
   </div>

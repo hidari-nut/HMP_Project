@@ -9,7 +9,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title id="title" align="center">
-      Cerbung Read
+      Cerbung Read {{this.current_user.user_id}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -29,7 +29,7 @@
       </ion-img>
     </ion-card>
     <ion-card-title>
-      {{cerbungs[index].title}}
+      {{cerbungs.cerbung_title}}
     </ion-card-title>
 
     <div class="counters">
@@ -61,17 +61,17 @@
   </ion-card>
 
   <div class="cerbung-submission">
-    <ion-card class="paragraph" *ngFor="let paragraph of getParagraphs()">
+    <ion-card class="paragraph" *ngFor="let contribution of getParagraphs()">
       <ion-item>
-        {{cerbungs.contribution.content}}
+        {{contribution.contribution_paragraph}}
       </ion-item>
       <ion-item>
-        <ion-avatar slot="start">
+        <!-- <ion-avatar slot="start">
           <img
             alt="{{cerbungs.contribution.author}} avatar"
             src={{cerbungs.contribution.avatar_url}} />
-        </ion-avatar>
-        <ion-label>{{cerbungs.contribution.author}}</ion-label>
+        </ion-avatar> -->
+        <ion-label>{{contribution.user_username}}</ion-label>
 
         <ion-buttons slot="end">
           <ion-button>
