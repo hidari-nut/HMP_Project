@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { WritersService } from 'src/app/writers.service';
+import { CerbungserviceService } from '../../cerbungservice.service';
 
 @Component({
   selector: 'app-login',
@@ -13,33 +13,56 @@ export class LoginPage implements OnInit {
   username: string;
   password: string;
   showTabBar: boolean = false;
+  currentUser: any;
   
-  constructor(private route: ActivatedRoute, private writersservice: WritersService ,private router: Router, private toastController: ToastController) {
+  constructor(private route: ActivatedRoute, private cerbungservice: CerbungserviceService,
+    private router: Router, private toastController: ToastController) {
 
     this.username = '';
     this.password = '';
+
+    this.currentUser = "";
   }
 
   ngOnInit() {
   }
 
   async onLogin() {
-    const validAccount =
-      this.writersservice.accounts.find(account => account.accountName === this.username && account.password === this.password);
 
-    if (validAccount) {
-      this.router.navigate(['/home']);
-      window.history.replaceState(null, '', '/home'); //prevent back button
+    this.cerbungservice.login(this.username, this.password).subscribe(
+      (response:any) => {
+        if(response.result === "Success"){
+          alert("Login Successful")
+          this.currentUser = response.data
 
-    } else {
-      const toast = await this.toastController.create({
-        message: 'Invalid username or password',
-        duration: 3000, 
-        position: 'bottom', 
-        color: 'danger', 
-      });
-      toast.present();
-    }
+          //Store user in local Storage
+          localStorage.setItem("app_current_user", this.currentUser)
+
+          this.router.navigate(['/home']);
+          window.history.replaceState(null, '', '/home'); //prevent back button
+        }
+        else{
+          alert("Login failed! Please ensure that your username and password is correct.")
+        }
+      }
+    )
+
+    // const validAccount =
+    //   this.writersservice.accounts.find(account => account.accountName === this.username && account.password === this.password);
+
+    // if (validAccount) {
+    //   this.router.navigate(['/home']);
+    //   window.history.replaceState(null, '', '/home'); //prevent back button
+
+    // } else {
+    //   const toast = await this.toastController.create({
+    //     message: 'Invalid username or password',
+    //     duration: 3000, 
+    //     position: 'bottom', 
+    //     color: 'danger', 
+    //   });
+    //   toast.present();
+    // }
   }
 
   goToSignUp() {
