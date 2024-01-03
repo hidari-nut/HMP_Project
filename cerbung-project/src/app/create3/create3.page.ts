@@ -15,9 +15,8 @@ export class Create3Page implements OnInit {
   shortDescription: string = '';
   imageCover: string = ''; 
   restricted: number = 1;
-  selectGenre: string = '';
-  selectGenreId: number = 0;
-  currentUserId: number = 0;
+  selectGenre: any = {};
+  selectGenreName: string = "";
   paragraph: string = ''; 
   radio: boolean = false; 
   check: boolean = false;
@@ -34,19 +33,21 @@ export class Create3Page implements OnInit {
         this.cerbungTitle = state.cerbungTitle || 'Default Title';
         this.shortDescription = state.shortDescription || 'Default Description';
         this.imageCover = state.imageCover || 'Default Image';
-        this.restricted = state.restricted || "1";
-        this.selectGenre = state.selectGenre || 'Default Genre';
+        this.selectGenre = state.selectGenre || {};
         this.paragraph = state.paragraph || '';
         this.radio = state.radio || false;
       }
     });
 
-    this.currentUser = localStorage.getItem("app_current_user")??''
+    this.restricted = (this.radio === true) ? 1: 0
+
+    var current_user_string = localStorage.getItem("app_current_user")??""
+    this.currentUser = JSON.parse(current_user_string)
   }
 
   createCerbung(){
     this.cerbungservice.createCerbung(this.cerbungTitle, this.shortDescription, this.imageCover, this.restricted, 
-      this.selectGenreId, this.currentUserId, this.paragraph).subscribe(
+      this.selectGenre.genre_id, this.currentUser.user_id, this.paragraph).subscribe(
       (response:any) => {
         if(response.result === "OK"){
           alert("Successfully created Cerbung")
