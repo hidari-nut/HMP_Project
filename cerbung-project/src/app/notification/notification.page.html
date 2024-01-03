@@ -30,19 +30,32 @@
       <ion-card *ngFor="let notification of notifications; let i=index">
         <ion-card-header>
           <ion-card-title>
-            {{notification.notification_user_id}} request to connect
+            <!-- Conditional rendering based on notification_type_id -->
+            <ng-container *ngIf="notification.notification_type_id === 1">
+              {{ notification.notification_user_id }} requested to contribute
+            </ng-container>
+            <ng-container *ngIf="notification.notification_type_id === 2">
+              {{ notification.notification_user_id }}'s' request has been approved
+            </ng-container>
+            <ng-container *ngIf="notification.notification_type_id === 3">
+              {{ notification.notification_user_id }}'s' request has been declined
+            </ng-container>
           </ion-card-title>
           <ion-card-subtitle>
-            {{notification.notification_date_send}}
+            {{ notification.notification_date_send }}
           </ion-card-subtitle>
         </ion-card-header>
-
+      
         <ion-card-content>
-            <ion-item>
-              <ion-button class="button-action" size="large" slot="end" routerLink="/read/{{i}}">Read</ion-button>
-            </ion-item>
+          <ion-item>
+            <ion-button class="button-action" size="large" slot="end" routerLink="/approvals/"
+              [disabled]="notification.notification_type_id !== 1">
+              Approve
+            </ion-button>
+          </ion-item>
         </ion-card-content>
       </ion-card>
+      
     </ion-list>
   </div>
 </ion-content>
