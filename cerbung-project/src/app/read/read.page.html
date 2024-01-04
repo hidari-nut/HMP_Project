@@ -33,7 +33,7 @@
     <div class="counters">
       <ion-chip [outline]="true">
         <ion-icon aria-hidden="true" name="list"></ion-icon>
-        <ion-label>{{cerbungs.paragraph_count}}</ion-label>
+        <ion-label>{{cerbungs.cerbung_contribution_count}}</ion-label>
       </ion-chip>
       <ion-chip [outline]="true">
         <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
@@ -57,9 +57,22 @@
       </ion-chip>
     </div>
 
+    <ion-item>
+      <ion-buttons slot="end">
+        <ion-button
+        (click)="updateLikeCerbung(cerbungs.user_like_cerbung)">
+          <ion-icon
+            [name]="cerbungs.user_like_cerbung === 1 ? 'heart' : 'heart-outline'"
+            size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
     <ion-item class="cerbung-profile-subtitles">
-      <ion-card-subtitle slot="start">by {{cerbungs.user_username}}</ion-card-subtitle>
-      <ion-card-subtitle slot="end">{{cerbungs.cerbung_created_date}}</ion-card-subtitle>
+      <ion-card-subtitle slot="start">by
+        {{cerbungs.user_username}}</ion-card-subtitle>
+      <ion-card-subtitle
+        slot="end">{{cerbungs.cerbung_created_date}}</ion-card-subtitle>
     </ion-item>
   </ion-card>
 
@@ -77,24 +90,49 @@
         <ion-label>{{contribution.user_username}}</ion-label>
 
         <ion-buttons slot="end">
-          <ion-button>
-            <ion-icon name="heart-outline"></ion-icon>
+          <ion-button
+          (click)="updateLikeContribution(contribution.user_like_contribution, contribution.contribution_id)">
+            <ion-icon
+              [name]="contribution.user_like_contribution === 1 ? 'heart' : 'heart-outline'"
+              size="large"></ion-icon>
           </ion-button>
+          <!-- <ion-button>
+            <ion-icon
+              name="heart-outline"
+              size="large"></ion-icon>
+          </ion-button> -->
         </ion-buttons>
       </ion-item>
     </ion-card>
   </div>
 
   <div class="create-cerbung-contribution">
-    <ion-textarea *ngIf="isRestricted == true" [(ngModel)]="new_paragraph" label="Continue the Story"
-      labelPlacement="stacked" fill="outline" auto-grow="true" counter="true" maxLength=350
-      [counterFormatter]="customCounterFormatter" [disabled]="isRestricted"
+    <ion-textarea
+      *ngIf="isRestricted == true"
+      [(ngModel)]="new_paragraph"
+      label="Continue the Story"
+      labelPlacement="stacked"
+      fill="outline"
+      auto-grow="true"
+      counter="true"
+      maxLength=350
+      [counterFormatter]="customCounterFormatter"
+      [disabled]="isRestricted"
       placeholder="This cerbung is restricted. Request permission to contribute from author">
     </ion-textarea>
 
-    <ion-textarea *ngIf="isRestricted == false" [(ngModel)]="new_paragraph" label="Continue the Story"
-      labelPlacement="stacked" fill="outline" auto-grow="true" counter="true" maxLength=350
-      [counterFormatter]="customCounterFormatter" [disabled]="isRestricted" placeholder="Add new Paragraph">
+    <ion-textarea
+      *ngIf="isRestricted == false"
+      [(ngModel)]="new_paragraph"
+      label="Continue the Story"
+      labelPlacement="stacked"
+      fill="outline"
+      auto-grow="true"
+      counter="true"
+      maxLength=350
+      [counterFormatter]="customCounterFormatter"
+      [disabled]="isRestricted"
+      placeholder="Add new Paragraph">
     </ion-textarea>
   </div>
 
@@ -104,19 +142,33 @@
       <ion-row>
 
         <ion-col>
-          <ion-button fill="outline" color="dark">
+          <ion-button
+            [fill]="cerbungs.user_follow_cerbung === 1 ? 'solid' : 'outline'"
+            color="dark"
+            (click)="updateFollowCerbung(cerbungs.user_follow_cerbung)">
             <ion-icon name="add-outline"></ion-icon>
-            <ion-label>Follow</ion-label>
+            <ion-label>{{ cerbungs.user_follow_cerbung === 1 ? 'Followed' :
+              'Follow' }}</ion-label>
           </ion-button>
         </ion-col>
 
         <ion-col class="ion-text-end">
-          <ion-button fill="outline" color="dark" (click)="createPermissionRequest()" *ngIf="isRestricted == true">
+
+          <ion-button
+            fill="outline"
+            color="dark"
+            (click)="createPermissionRequest()"
+            *ngIf="isRestricted == true">
             <ion-icon name="add-outline"></ion-icon>
             <ion-label>Request to Contribute</ion-label>
           </ion-button>
 
-          <ion-button fill="outline" color="dark" (click)="createCerbungContribution()" *ngIf="isRestricted == false">
+
+          <ion-button
+            fill="outline"
+            color="dark"
+            (click)="createCerbungContribution()"
+            *ngIf="isRestricted == false">
             <ion-icon name="add-outline"></ion-icon>
             <ion-label>Submit Contribution</ion-label>
           </ion-button>

@@ -15,6 +15,10 @@ export class HomePage implements OnInit {
   constructor(private cerbungservice: CerbungserviceService) {
   }
 
+  ionViewWillEnter() {
+    this.ngOnInit()
+  }
+
   ngOnInit() {
     this.cerbungservice.readCerbungs().subscribe(
       (response) => {

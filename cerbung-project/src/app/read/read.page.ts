@@ -67,8 +67,8 @@ createCerbungContribution(){
       if(response.result === "OK"){
         alert("Successfully submitted Contribution!")
 
+        //Refresh
         this.ngOnInit()
-        //Refresh?
       }
       else{
         alert("Failed to submit contribution!. Please try again later.")
@@ -79,6 +79,78 @@ createCerbungContribution(){
 
 createPermissionRequest(){
   //Request
+}
+
+updateLikeCerbung(p_current_like_status: number){
+  var p_likes: number = p_current_like_status === 1 ? 0:1
+
+  this.cerbungservice.updateLikeCerbung(p_likes, this.current_user.user_id, this.cerbung_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        if(p_likes == 1){
+          alert("You liked this cerbung!")
+        }
+        else{
+          alert("You unliked this cerbung!")
+        }
+
+
+        this.ngOnInit()
+      }
+      else{
+        alert("Failed to like this cerbung. Please try again")
+      }
+    }
+  )
+}
+
+updateFollowCerbung(p_current_follow_status: number){
+  var p_follows: number = p_current_follow_status === 1 ? 0:1
+
+  this.cerbungservice.updateFollowCerbung(p_follows, this.current_user.user_id, this.cerbung_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        if(p_follows == 1){
+          alert("You follow this cerbung!")
+        }
+        else{
+          alert("You unfollowed this cerbung!")
+        }
+
+
+        this.cerbungs.user_follow_cerbung = p_follows
+      }
+      else{
+        alert("Failed to follow this cerbung. Please try again")
+      }
+    }
+  )
+}
+
+updateLikeContribution(p_current_like_status: number, p_contribution_id: number){
+  var p_likes: number = p_current_like_status === 1 ? 0:1
+
+  this.cerbungservice.updateLikeContribution(p_likes, this.current_user.user_id, p_contribution_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        if(p_likes == 1){
+          alert("You liked this paragraph!")
+        }
+        else{
+          alert("You unliked this paragraph!")
+        }
+
+
+        this.ngOnInit()
+      }
+      else{
+        alert("Failed to like this cerbung. Please try again")
+      }
+    }
+  )
 }
 
 customCounterFormatter(inputLength: number, maxLength: number) {
