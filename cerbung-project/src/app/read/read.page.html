@@ -92,11 +92,17 @@
         <ion-label>{{contribution.user_username}}</ion-label>
 
         <ion-buttons slot="end">
-          <ion-button>
+          <ion-button
+          (click)="updateLikeContribution(contribution.user_like_contribution, contribution.contribution_id)">
+            <ion-icon
+              [name]="contribution.user_like_contribution === 1 ? 'heart' : 'heart-outline'"
+              size="large"></ion-icon>
+          </ion-button>
+          <!-- <ion-button>
             <ion-icon
               name="heart-outline"
               size="large"></ion-icon>
-          </ion-button>
+          </ion-button> -->
         </ion-buttons>
       </ion-item>
     </ion-card>

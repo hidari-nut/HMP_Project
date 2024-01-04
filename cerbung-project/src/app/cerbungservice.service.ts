@@ -133,4 +133,14 @@ export class CerbungserviceService {
     const urlEncodedData = body.toString();
     return this.http.post("https://ubaya.me/native/160421069/project/update_like_cerbung.php", urlEncodedData, { headers });
   }
+
+  updateLikeContribution(p_likes: number, p_user_id: number, p_contribution_id: number) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('likes', p_likes.toString());
+    body.set('user_id', p_user_id.toString());
+    body.set('contribution_id', p_contribution_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/update_like_paragraph.php", urlEncodedData, { headers });
+  }
 }

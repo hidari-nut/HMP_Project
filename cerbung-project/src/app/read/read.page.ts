@@ -141,6 +141,30 @@ updateFollowCerbung(p_current_follow_status: number){
   )
 }
 
+updateLikeContribution(p_current_like_status: number, p_contribution_id: number){
+  var p_likes: number = p_current_like_status === 1 ? 0:1
+
+  this.cerbungservice.updateLikeContribution(p_likes, this.current_user.user_id, p_contribution_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        if(p_likes == 1){
+          alert("You liked this paragraph!")
+        }
+        else{
+          alert("You unliked this paragraph!")
+        }
+
+
+        this.ngOnInit()
+      }
+      else{
+        alert("Failed to like this cerbung. Please try again")
+      }
+    }
+  )
+}
+
 customCounterFormatter(inputLength: number, maxLength: number) {
   return `${inputLength} of ${maxLength}`;
 }
