@@ -15,6 +15,10 @@ export class ReadPage implements OnInit {
   cerbungs: any = {};
   index = 0;
 
+  new_paragraph: string = "";
+  isRestricted: boolean = true;
+  isCerbungRestricted: boolean = true;
+
   constructor(private route: ActivatedRoute, private cerbungservice: CerbungserviceService) {
   
   }
@@ -32,10 +36,25 @@ ngOnInit() {
       this.cerbungservice.readCerbungDetail(this.current_user.user_id, this.cerbung_id).subscribe(
         (response: any) => {
           this.cerbungs = response.data
+
+          if(this.cerbungs.cerbung_restricted === 1){
+            this.isCerbungRestricted = true
+          }
+          else{
+            this.isCerbungRestricted = false
+          }
+
+          if(this.cerbungs.cerbung_restricted === 1 && this.cerbungs.user_add_permission === 0){
+            this.isRestricted = true
+          }
+          else{
+            this.isRestricted = false
+          }
         }
       )
     }
   )
+
 
   // this.route.params.subscribe(
   //   params => {
@@ -51,6 +70,31 @@ ngOnInit() {
 
 getParagraphs() {
   return this.cerbungs.contributions;
+}
+
+createCerbungContribution(){
+  this.cerbungservice.createCerbungContribution(this.new_paragraph, this.current_user.user_id, this.cerbung_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        alert("Successfully submitted Contribution!")
+
+        this.ngOnInit()
+        //Refresh?
+      }
+      else{
+        alert("Failed to submit contribution!. Please try again later.")
+      }
+    }
+  )
+}
+
+createPermissionRequest(){
+  //Request
+}
+
+customCounterFormatter(inputLength: number, maxLength: number) {
+  return `${inputLength} of ${maxLength}`;
 }
 
 }
