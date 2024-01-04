@@ -17,6 +17,10 @@ export class HomePage implements OnInit {
     //this.cerbungs = this.cerbungservice.cerbungs;
   }
 
+  ionViewWillEnter() {
+    this.ngOnInit()
+  }
+
   ngOnInit() {
     this.cerbungservice.readCerbungs().subscribe(
       (response) => {

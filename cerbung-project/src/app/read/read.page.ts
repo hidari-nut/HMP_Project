@@ -93,6 +93,30 @@ createPermissionRequest(){
   //Request
 }
 
+updateLikeCerbung(p_current_like_status: number){
+  var p_likes: number = p_current_like_status === 1 ? 0:1
+
+  this.cerbungservice.updateLikeCerbung(p_likes, this.current_user.user_id, this.cerbung_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        if(p_likes == 1){
+          alert("You liked this cerbung!")
+        }
+        else{
+          alert("You unliked this cerbung!")
+        }
+
+
+        this.ngOnInit()
+      }
+      else{
+        alert("Failed to like this cerbung. Please try again")
+      }
+    }
+  )
+}
+
 updateFollowCerbung(p_current_follow_status: number){
   var p_follows: number = p_current_follow_status === 1 ? 0:1
 
