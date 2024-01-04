@@ -123,9 +123,11 @@
       <ion-row>
 
         <ion-col>
-          <ion-button fill="outline" color="dark">
+          <ion-button [fill]="cerbungs.user_follow_cerbung === 1 ? 'solid' : 'outline'" 
+          color="dark" 
+          (click)="updateFollowCerbung(cerbungs.user_follow_cerbung)">
             <ion-icon name="add-outline"></ion-icon>
-            <ion-label>Follow</ion-label>
+            <ion-label>{{ cerbungs.user_follow_cerbung === 1 ? 'Followed' : 'Follow' }}</ion-label>
           </ion-button>
         </ion-col>
 

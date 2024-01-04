@@ -79,8 +79,8 @@ createCerbungContribution(){
       if(response.result === "OK"){
         alert("Successfully submitted Contribution!")
 
+        //Refresh
         this.ngOnInit()
-        //Refresh?
       }
       else{
         alert("Failed to submit contribution!. Please try again later.")
@@ -91,6 +91,30 @@ createCerbungContribution(){
 
 createPermissionRequest(){
   //Request
+}
+
+updateFollowCerbung(p_current_follow_status: number){
+  var p_follows: number = p_current_follow_status === 1 ? 0:1
+
+  this.cerbungservice.updateFollowCerbung(p_follows, this.current_user.user_id, this.cerbung_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        if(p_follows == 1){
+          alert("You follow this cerbung!")
+        }
+        else{
+          alert("You unfollowed this cerbung!")
+        }
+
+
+        this.cerbungs.user_follow_cerbung = p_follows
+      }
+      else{
+        alert("Failed to follow this cerbung. Please try again")
+      }
+    }
+  )
 }
 
 customCounterFormatter(inputLength: number, maxLength: number) {
