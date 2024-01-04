@@ -15,6 +15,11 @@ export class ReadPage implements OnInit {
   cerbungs: any = {};
   index = 0;
 
+  new_paragraph: string = "";
+  isRestricted: boolean = true;
+
+  contributionButtonText: string = "Request to Contribute";
+
   constructor(private route: ActivatedRoute, private cerbungservice: CerbungserviceService) {
   
   }
@@ -37,6 +42,10 @@ ngOnInit() {
     }
   )
 
+  if(!this.isRestricted){
+    this.contributionButtonText = "Submit Contribution"
+  }
+
   // this.route.params.subscribe(
   //   params => {
   //     this.cerbung_id = params['index']
@@ -51,6 +60,10 @@ ngOnInit() {
 
 getParagraphs() {
   return this.cerbungs.contributions;
+}
+
+customCounterFormatter(inputLength: number, maxLength: number) {
+  return `${inputLength} of ${maxLength}`;
 }
 
 }

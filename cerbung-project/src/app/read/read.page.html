@@ -82,25 +82,43 @@
     </ion-card>
   </div>
 
+  <div class="create-cerbung-contribution">
+    <ion-textarea
+    [(ngModel)]="new_paragraph"
+    label="Continue the Story"
+    labelPlacement="stacked"
+    fill="outline"
+    auto-grow="true"
+    counter="true"
+    maxLength=350
+    [counterFormatter]="customCounterFormatter"
+    [disabled]="isRestricted"
+    placeholder="Add new paragraph">
+  </ion-textarea>
+  </div>
+
   <div class="cerbung-interactions">
-    <ion-buttons>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-button fill="outline" color="dark">
-              <ion-icon name="add-outline" slot="start"></ion-icon>
-              <ion-label>Follow</ion-label>
-            </ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button fill="outline" color="dark">
-              <ion-icon name="add-outline" slot="start"></ion-icon>
-              <ion-label>Request to Contribute</ion-label>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-buttons>
+    <ion-grid>
+
+      <ion-row>
+
+        <ion-col>
+          <ion-button fill="outline" color="dark">
+            <ion-icon name="add-outline"></ion-icon>
+            <ion-label>Follow</ion-label>
+          </ion-button>
+        </ion-col>
+
+        <ion-col class="ion-text-end">
+          <ion-button fill="outline" color="dark">
+            <ion-icon name="add-outline"></ion-icon>
+            <ion-label>{{contributionButtonText}}</ion-label>
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
   </div>
 
 </ion-content>
