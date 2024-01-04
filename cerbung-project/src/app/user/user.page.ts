@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CerbungserviceService } from '../cerbungservice.service';
-import { WritersService } from '../writers.service';
 
 @Component({
   selector: 'app-user',
@@ -11,11 +10,19 @@ export class UserPage implements OnInit {
 
   writers: any[] = [];
   viewType = 'mostliked';
-  constructor(private writerService: WritersService) {
-    this.writers = writerService.accounts;
+  
+  constructor(private cerbungservice: CerbungserviceService) {
    }
 
-  ngOnInit() {
+   ngOnInit() {
+    this.cerbungservice.readUsers().subscribe(
+      (response) => {
+        if (response.result = 'OK') {
+          console.log(response.data);
+          this.writers = response.data;
+        }
+      }
+    ); 
   }
 
 }

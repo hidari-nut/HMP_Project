@@ -1,13 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>accountview</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="title" align="center">
+      {{this.users.user_username}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">accountview</ion-title>
+      <ion-title size="large">{{this.users.user_username}}</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+  <div class="users">
+    <ion-card-header>
+      <ion-avatar>
+        <img alt={{users.user_profile_picture}} src={{users.user_profile_picture}} />
+      </ion-avatar>
+      <ion-card-title>{{users.user_username}}</ion-card-title>
+      <ion-card-subtitle>Since : {{users.user_created_date}}</ion-card-subtitle>
+      <ion-card-subtitle style="font-weight: bold;">Exceeding the amount of likes your heart can
+        give</ion-card-subtitle>
+    </ion-card-header>
+  </div>
+
+  <div id="cerbungs">
+    <ion-list>
+      <ion-card *ngFor="let cerbung of cerbungs; let i=index" routerLink="/read/{{cerbung.cerbung_id}}">
+        <ion-img src={{cerbung.cerbung_display_picture}} alt={{cerbung.cerbung_display_picture}}>
+        </ion-img>
+        <ion-card-header>
+          <ion-card-title>
+            {{cerbung.cerbung_title}}
+          </ion-card-title>
+          <ion-card-subtitle>
+            by {{cerbung.user_username}}
+          </ion-card-subtitle>
+          <ion-card-subtitle>
+            Last update : {{cerbung.cerbung_created_date}}
+          </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+  </div>
 </ion-content>

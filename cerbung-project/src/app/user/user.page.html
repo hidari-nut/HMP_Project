@@ -35,29 +35,28 @@
 
   <div id="container">
     <div id="cards" *ngIf="viewType==='mostliked'">
-      <ion-card *ngFor="let writer of writers; let i=index" routerLink="/accountview/">
-
+      <ion-card *ngFor="let writer of writers;" routerLink="/accountview/{{writer.user_id}}">
         <ion-card-header>
           <ion-avatar>
-            <img alt={{writer.pic_url}} src={{writer.pic_url}} />
+            <img alt={{writer.user_profile_picture}} src={{writer.user_profile_picture}} />
           </ion-avatar>
-          <ion-card-title>{{writer.accountName}}</ion-card-title>
-          <ion-card-subtitle>Since : {{writer.created_year}}</ion-card-subtitle>
-          <ion-card-subtitle style="font-weight: bold;">{{writer.total_like}} Likes</ion-card-subtitle>
+          <ion-card-title>{{writer.user_username}}</ion-card-title>
+          <ion-card-subtitle>Since : {{writer.user_created_date}}</ion-card-subtitle>
+          <ion-card-subtitle style="font-weight: bold;">Exceeding the amount of likes your heart can give</ion-card-subtitle>
         </ion-card-header>
       </ion-card>
     </div>
 
     <div *ngIf="viewType==='following'">
-      <ion-card *ngFor="let writer of writers; let i=index" routerLink="/accountview/">
+      <ion-card *ngFor="let writer of writers;"  routerLink="/accountview/{{writer.user_id}}">
         <ion-card-header>
           <ion-avatar>
-            <img alt={{writer.pic_url}} src={{writer.pic_url}} />
+            <img alt={{writer.user_profile_picture}} src={{writer.user_profile_picture}} />
           </ion-avatar>
-          <ion-card-title>{{writer.accountName}}</ion-card-title>
-          <ion-card-subtitle>Since : {{writer.created_year}}</ion-card-subtitle>
-          <ion-card-subtitle style="font-weight: bold;">{{writer.total_like}} Likes</ion-card-subtitle>
-          <ion-card-subtitle>Last Update : {{writer.latest_post}}</ion-card-subtitle>
+          <ion-card-title>{{writer.user_username}}</ion-card-title>
+          <ion-card-subtitle>Since : {{writer.user_created_date}}</ion-card-subtitle>
+          <ion-card-subtitle style="font-weight: bold;">Exceeding the amount of likes your heart can give</ion-card-subtitle>
+          <ion-card-subtitle>Last Update : A Long Tamago</ion-card-subtitle>
         </ion-card-header>
       </ion-card>
     </div>
