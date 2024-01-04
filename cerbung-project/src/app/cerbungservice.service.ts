@@ -103,4 +103,14 @@ export class CerbungserviceService {
       const urlEncodedData = body.toString();
       return this.http.post("https://ubaya.me/native/160421069/project/create_cerbung.php", urlEncodedData, { headers });
     }
+
+  createCerbungContribution(p_paragraph: string, p_user_id: number, p_cerbung_id: number){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('paragraph', p_paragraph); 
+    body.set('user_id', p_user_id.toString());
+    body.set('cerbung_id', p_cerbung_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/create_cerbung_paragraph.php", urlEncodedData, { headers });
+  }
 }

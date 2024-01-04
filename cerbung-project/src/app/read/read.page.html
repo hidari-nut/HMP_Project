@@ -47,9 +47,14 @@
         <ion-label type="floating">{{cerbungs.genre_name}}</ion-label>
       </ion-chip>
 
-      <ion-chip [outline]="true" *ngIf="cerbungs.cerbung_restricted == true">
+      <ion-chip [outline]="true" *ngIf="this.isCerbungRestricted == true">
         <ion-label type="floating">
           Restricted
+        </ion-label>
+      </ion-chip>
+      <ion-chip [outline]="true" *ngIf="this.isCerbungRestricted == false">
+        <ion-label type="floating">
+          Public
         </ion-label>
       </ion-chip>
     </div>
@@ -83,7 +88,8 @@
   </div>
 
   <div class="create-cerbung-contribution">
-    <ion-textarea
+  <ion-textarea
+    *ngIf="isRestricted == true"
     [(ngModel)]="new_paragraph"
     label="Continue the Story"
     labelPlacement="stacked"
@@ -93,7 +99,21 @@
     maxLength=350
     [counterFormatter]="customCounterFormatter"
     [disabled]="isRestricted"
-    placeholder="Add new paragraph">
+    placeholder="This cerbung is restricted. Request permission to contribute from author">
+  </ion-textarea>
+
+  <ion-textarea
+    *ngIf="isRestricted == false"
+    [(ngModel)]="new_paragraph"
+    label="Continue the Story"
+    labelPlacement="stacked"
+    fill="outline"
+    auto-grow="true"
+    counter="true"
+    maxLength=350
+    [counterFormatter]="customCounterFormatter"
+    [disabled]="isRestricted"
+    placeholder="Add new Paragraph">
   </ion-textarea>
   </div>
 
@@ -110,9 +130,22 @@
         </ion-col>
 
         <ion-col class="ion-text-end">
-          <ion-button fill="outline" color="dark">
+          <ion-button 
+          fill="outline" 
+          color="dark"
+          (click)="createPermissionRequest()"
+          *ngIf="isRestricted == true">
             <ion-icon name="add-outline"></ion-icon>
-            <ion-label>{{contributionButtonText}}</ion-label>
+            <ion-label>Request to Contribute</ion-label>
+          </ion-button>
+
+          <ion-button 
+          fill="outline" 
+          color="dark"
+          (click)="createCerbungContribution()"
+          *ngIf="isRestricted == false">
+            <ion-icon name="add-outline"></ion-icon>
+            <ion-label>Submit Contribution</ion-label>
           </ion-button>
         </ion-col>
 
