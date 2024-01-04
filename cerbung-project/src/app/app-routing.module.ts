@@ -49,13 +49,14 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
   },
   {
-    path: 'accountview',
+    path: 'accountview/:index',
     loadChildren: () => import('./accountview/accountview.module').then( m => m.AccountviewPageModule)
   },
   {
     path: 'notification',
     loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
-  },  {
+  },
+  {
     path: 'approvals',
     loadChildren: () => import('./approvals/approvals.module').then( m => m.ApprovalsPageModule)
   }

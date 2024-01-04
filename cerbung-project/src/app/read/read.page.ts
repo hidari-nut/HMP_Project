@@ -54,18 +54,6 @@ ngOnInit() {
       )
     }
   )
-
-
-  // this.route.params.subscribe(
-  //   params => {
-  //     this.cerbung_id = params['index']
-  //     this.cerbungservice.readCerbungDetail(this.current_user.user_id, this.cerbung_id).subscribe(
-  //       (response: any) => {
-  //         this.cerbungs = response.data
-  //       }
-  //     )
-  //   }
-  // )
 }
 
 getParagraphs() {
