@@ -27,7 +27,7 @@ export class PreferencePage implements OnInit {
     var current_user_string = localStorage.getItem("app_current_user")??""
     this.current_user = JSON.parse(current_user_string)
 
-    this.e_user_username = this.current_user.user_username
+    
 
     this.route.params.subscribe(params => {
       this.cerbungservice.readUser(this.current_user.user_id).subscribe(
@@ -35,9 +35,11 @@ export class PreferencePage implements OnInit {
           if (response.result == "OK") {
             this.current_user = response.data;
           }
+           this.e_user_username = this.current_user.user_username
         }
       );
     });
+   
   }
 
   updateUsername() {
