@@ -44,9 +44,9 @@ ngOnInit() {
             this.isCerbungRestricted = false
           }
 
-          if(this.cerbungs.cerbung_restricted === 1 
-            && this.cerbungs.user_add_permission === 0 
-            && this.current_user.user_id == this.cerbungs.user_id){
+          if((this.cerbungs.cerbung_restricted === 1 
+            && this.cerbungs.user_add_permission === 0)
+            || this.current_user.user_id == this.cerbungs.user_id){
             this.isRestricted = true
           }
           else{
@@ -80,7 +80,20 @@ createCerbungContribution(){
 }
 
 createPermissionRequest(){
-  //Request
+  this.cerbungservice.createContributionRequest(this.cerbungs.user_id, this.current_user.user_id, this.cerbung_id)
+  .subscribe(
+    (response:any) =>{
+      if(response.result === "OK"){
+        alert("Successfully sent Request!")
+
+        //Refresh
+        this.ngOnInit()
+      }
+      else{
+        alert("Failed to send Request!. Please try again later.")
+      }
+    }
+  )
 }
 
 updateLikeCerbung(p_current_like_status: number){

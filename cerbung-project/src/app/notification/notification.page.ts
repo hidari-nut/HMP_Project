@@ -7,13 +7,23 @@ import { CerbungserviceService } from '../cerbungservice.service';
 })
 export class NotificationPage implements OnInit {
 
+  current_user: any = {};
+
   notifications: any[] = [];
 
-  constructor(cerbungService : CerbungserviceService) { 
-    this.notifications = cerbungService.notifications;
+  constructor(private cerbungservice : CerbungserviceService) { 
+    // this.notifications = cerbungservice.notifications;
   }
 
   ngOnInit() {
+    var current_user_string = localStorage.getItem("app_current_user")??""
+    this.current_user = JSON.parse(current_user_string)
+
+    this.cerbungservice.readNotifications(this.current_user.user_id).subscribe(
+      (response: any) => {
+        this.notifications = response.data
+      }
+    )
   }
 
 }

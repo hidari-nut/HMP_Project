@@ -27,15 +27,21 @@
   <ion-card>
     <ion-card-header>
       <ion-avatar>
-        <img alt='https://embed.pixiv.net/artwork.php?illust_id=110509569' src='https://embed.pixiv.net/artwork.php?illust_id=110509569' />
+        <img alt='{{notification_user.user_profile_picture}}'
+          src='{{notification_user.user_profile_picture}}' />
       </ion-avatar>
-      <ion-card-title>Novela wants to contribute in: 'The Great Flip: The Sugar-coated Fraud'</ion-card-title>
-      <img src="https://www.worldatlas.com/r/w1200-q80/upload/64/de/e3/shutterstock-520729021.jpg" alt="Image" class="card-image" />
-      <ion-card-subtitle>Request sent: 2024-01-03</ion-card-subtitle>
-      
+      <ion-card-title>{{notification_user.user_username}} wants to contribute in:
+        '{{notification_cerbung.cerbung_title}}'</ion-card-title>
+      <img
+        src="{{notification_cerbung.cerbung_display_picture}}"
+        alt="Image" class="card-image" />
+      <ion-card-subtitle>Request sent: {{notification.notification_date_send}}</ion-card-subtitle>
+
       <ion-card-content id="buttons-container">
-        <ion-button expand="block" class="button-approve" routerLink="/notification/">APPROVE</ion-button>
-        <ion-button expand="block" class="button-decline" routerLink="/notification/">DECLINE</ion-button>
+        <ion-button expand="block" class="button-approve"
+          (click)="updateNotification(2)">APPROVE</ion-button>
+        <ion-button expand="block" class="button-decline"
+        (click)="updateNotification(3)">DECLINE</ion-button>
       </ion-card-content>
     </ion-card-header>
   </ion-card>

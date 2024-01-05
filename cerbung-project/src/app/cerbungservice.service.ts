@@ -59,6 +59,14 @@ export class CerbungserviceService {
     return this.http.post("https://ubaya.me/native/160421069/project/read_cerbungs_by_user.php", urlEncodedData, { headers });
   }
 
+  readCerbungById(p_cerbung_id: number) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('cerbung_id', p_cerbung_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/read_cerbung_by_id.php", urlEncodedData, { headers });
+  }
+
   signUp(p_username: string, p_password: string, p_profile_picture_url: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const body = new URLSearchParams();
@@ -67,6 +75,22 @@ export class CerbungserviceService {
     body.set('profile_picture', p_profile_picture_url);
     const urlEncodedData = body.toString();
     return this.http.post("https://ubaya.me/native/160421069/project/create_user.php", urlEncodedData, { headers });
+  }
+
+  readNotifications(p_receiver_user_id: number){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('user_id', p_receiver_user_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/read_notifications.php", urlEncodedData, { headers });
+  }
+
+  readNotificationsById(p_notification_id: number){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('notification_id', p_notification_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/read_notification_by_id.php", urlEncodedData, { headers });
   }
 
   createCerbung(p_title: string, p_description: string, p_display_picture_url: string, p_restricted: number,
@@ -93,6 +117,26 @@ export class CerbungserviceService {
     const urlEncodedData = body.toString();
     return this.http.post("https://ubaya.me/native/160421069/project/create_cerbung_paragraph.php", urlEncodedData, { headers });
   }
+
+  createContributionRequest(p_author_id: number, p_requester_id: number, p_cerbung_id: number) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('author_id', p_author_id.toString());
+    body.set('requester_id', p_requester_id.toString());
+    body.set('cerbung_id', p_cerbung_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/create_contribution_request.php", urlEncodedData, { headers });
+  }
+
+  createUserPermission(p_user_id: number, p_cerbung_id: number) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('user_id', p_user_id.toString());
+    body.set('cerbung_id', p_cerbung_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/create_user_permission.php", urlEncodedData, { headers });
+  }
+
 
   updateFollowCerbung(p_follows: number, p_user_id: number, p_cerbung_id: number) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
@@ -142,6 +186,15 @@ export class CerbungserviceService {
     body.set('new_password', p_new_password);
     const urlEncodedData = body.toString();
     return this.http.post("https://ubaya.me/native/160421069/project/update_user_password.php", urlEncodedData, { headers });
+  }
+
+  updateNotification(p_notification_id: number, p_type_id: number,) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+    body.set('notification_id', p_notification_id.toString());
+    body.set('type_id', p_type_id.toString());
+    const urlEncodedData = body.toString();
+    return this.http.post("https://ubaya.me/native/160421069/project/update_notification.php", urlEncodedData, { headers });
   }
 
   notifications = [
