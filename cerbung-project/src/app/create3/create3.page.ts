@@ -18,7 +18,7 @@ export class Create3Page implements OnInit {
   selectGenre: any = {};
   selectGenreName: string = "";
   paragraph: string = ''; 
-  radio: boolean = false; 
+  radio: number = 1; 
   check: boolean = false;
 
 
@@ -39,7 +39,8 @@ export class Create3Page implements OnInit {
       }
     });
 
-    this.restricted = (this.radio === true) ? 1: 0
+    // this.restricted = (this.radio === true) ? 1: 0
+    this.restricted = this.radio
 
     var current_user_string = localStorage.getItem("app_current_user")??""
     this.currentUser = JSON.parse(current_user_string)

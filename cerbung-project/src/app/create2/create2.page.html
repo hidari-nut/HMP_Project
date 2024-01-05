@@ -26,12 +26,12 @@
     <ion-text>Access to this Cerbung</ion-text><br />
     <ion-radio-group 
     [(ngModel)] = "radio">
-      <ion-radio labelPlacement="end">Restricted<br />
+      <ion-radio labelPlacement="end" value="1">Restricted<br />
         <ion-text class="radio-desc">
           (only approved users can contribute)
         </ion-text>
       </ion-radio><br />
-      <ion-radio labelPlacement="end">Public<br />
+      <ion-radio labelPlacement="end" value="0">Public<br />
         <ion-text class="radio-desc">
           (any user can contribute)
         </ion-text></ion-radio><br />
