@@ -21,6 +21,14 @@
       <ion-chip [outline]="true">
         <ion-label type="floating">{{selectGenre.genre_name}}</ion-label>
       </ion-chip>
+      <ion-chip [outline]="true"
+      *ngIf="restricted == 1">
+        <ion-label type="floating">Restricted</ion-label>
+      </ion-chip>
+      <ion-chip [outline]="true"
+      *ngIf="restricted == 0">
+        <ion-label type="floating">Public</ion-label>
+      </ion-chip>
     </div>
 
     <ion-grid>

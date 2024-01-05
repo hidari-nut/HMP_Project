@@ -14,12 +14,12 @@ export class Create2Page implements OnInit {
 
   constructor(private router: Router) { }
   paragraph: string = "";
-  radio: number = 1;
+  radio: string = "";
   ngOnInit() {
   }
 
   isNextButtonDisabled(): boolean {
-    if (this.paragraph === '' || this.radio === null) {
+    if (this.paragraph === '' || this.radio === "") {
       return true;
     }
     else
