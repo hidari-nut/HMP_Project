@@ -9,15 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class AccountviewPage implements OnInit {
+
+  current_user: any = {};
+
   user_id: number = 0;
   users: any = {};
   index = 0;
   cerbungs: any[] = [];
 
+  
+
   constructor(private route: ActivatedRoute, private cerbungservice: CerbungserviceService) {
   }
 
   ngOnInit() {
+
+    var current_user_string = localStorage.getItem("app_current_user")??""
+    this.current_user = JSON.parse(current_user_string)
 
     this.route.params.subscribe(
       params => {

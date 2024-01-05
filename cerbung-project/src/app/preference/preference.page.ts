@@ -13,6 +13,8 @@ export class PreferencePage implements OnInit {
 
   constructor(private route: ActivatedRoute, private cerbungservice: CerbungserviceService) { }
 
+  current_user:any={};
+
   e_user_id: number = 0
   e_user_username = '';
   e_user_old_password = '';
@@ -21,12 +23,17 @@ export class PreferencePage implements OnInit {
 
 
   ngOnInit() {
+
+    var current_user_string = localStorage.getItem("app_current_user")??""
+    this.current_user = JSON.parse(current_user_string)
+
+    this.e_user_username = this.current_user.user_username
+
     this.route.params.subscribe(params => {
-      this.e_user_id = params['index'];
-      this.cerbungservice.readUser(params['index']).subscribe(
+      this.cerbungservice.readUser(this.current_user.user_id).subscribe(
         (response: any) => {
-          if (response && response.data) {
-            this.e_user_username = response.user_username;
+          if (response.result == "OK") {
+            this.current_user = response.data;
           }
         }
       );
@@ -35,15 +42,32 @@ export class PreferencePage implements OnInit {
 
   updateUsername() {
     this.cerbungservice.updateUser(
-      this.e_user_id, this.e_user_username).subscribe(
+      this.current_user.user_id, this.e_user_username, this.current_user.user_profile_picture).subscribe(
         (response: any) => {
-          if (response.result === 'success') {
-            alert("success")
+          if (response.result === 'OK') {
+            alert("Successfully updated username!")
           }
           else {
             alert(response.message)
           }
         });
+
+    this.ngOnInit();
+  }
+
+  updatePassword() {
+    this.cerbungservice.updatePassword(
+      this.current_user.user_id, this.e_user_old_password, this.e_user_new_password).subscribe(
+        (response: any) => {
+          if (response.result === 'OK') {
+            alert("Successfully changed password!")
+          }
+          else {
+            alert(response.message)
+          }
+        });
+
+    this.ngOnInit();
   }
 
 
