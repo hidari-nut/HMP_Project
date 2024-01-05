@@ -57,7 +57,7 @@ export class ApprovalsPage implements OnInit {
               this.cerbungservice.createUserPermission(this.notification.notification_user_id, 
                 this.notification.notification_cerbung_id).subscribe(
                   (response_approval: any) =>{
-                    if(response_approval === "OK"){
+                    if(response_approval.result === "OK"){
                         alert("Successfully approved!")
                         this.router.navigate(['/home']);
                         window.history.replaceState(null, '', '/home');
