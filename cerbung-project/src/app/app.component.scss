@@ -1,32 +1,59 @@
 .centered-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  ion-button {
+    flex: 0 0 auto;
+    margin: 5px;
+
+    ion-label {
+      display: block;
+    }
+  }
+}
+
+.centered-buttons-phone {
+  display: none;
+}
+
+@media screen and (max-width: 520px) {
+  .centered-buttons {
+    display: none;
+  }
+
+  .centered-buttons-phone {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     gap: 5px;
-  
+
     ion-button {
       flex: 0 0 auto;
       margin: 5px;
-  
+
       ion-label {
         display: block;
+        font-size: 0.8em;
+      }
+
+      ion-grid {
+        ion-row {
+          justify-content: center;
+          align-items: center;
+
+          ion-icon {
+            font-size: 0.2em;
+          }
+
+          ion-label {
+            font-size: 0.5em;
+          }
+        }
       }
     }
   }
-  
-  @media screen and (max-width: 414px) {
-    .centered-buttons {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .centered-buttons ion-button:nth-child(2) {
-      order: 3;
-    }
-  
-    .centered-buttons ion-button:nth-child(3) {
-      order: 2;
-    }
-  }
-  
+}
