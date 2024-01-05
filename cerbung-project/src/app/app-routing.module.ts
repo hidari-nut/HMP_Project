@@ -57,7 +57,7 @@ const routes: Routes = [
     loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
   },
   {
-    path: 'approvals',
+    path: 'approvals/:index',
     loadChildren: () => import('./approvals/approvals.module').then( m => m.ApprovalsPageModule)
   }
 
