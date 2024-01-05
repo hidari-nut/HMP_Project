@@ -46,7 +46,7 @@ ngOnInit() {
 
           if(this.cerbungs.cerbung_restricted === 1 
             && this.cerbungs.user_add_permission === 0 
-            && this.current_user == this.cerbungs.user_username){
+            && this.current_user.user_id == this.cerbungs.user_id){
             this.isRestricted = true
           }
           else{
