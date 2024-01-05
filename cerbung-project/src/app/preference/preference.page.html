@@ -27,15 +27,15 @@
 
   <div class="preference_acc">
 
-    <!-- <ion-avatar>
-      <img alt='https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/04/Ninomae-Inanis-Unravel-1.jpg'
-        src='https://i0.wp.com/anitrendz.net/news/wp-content/uploads/2023/04/Ninomae-Inanis-Unravel-1.jpg' />
-    </ion-avatar> -->
+    <ion-avatar>
+      <img alt='{{current_user.user_profile_picture}}'
+        src='{{current_user.user_profile_picture}}' />
+    </ion-avatar>
 
 
-    <!-- <ion-textarea [(ngModel)]="accountName" label="Account Name" labelPlacement="stacked" fill="outline"
+    <ion-textarea [(ngModel)]="e_user_username" label="Account Name" labelPlacement="stacked" fill="outline"
       auto-grow="true">
-    </ion-textarea> -->
+    </ion-textarea>
 
     <!-- <ion-textarea [(ngModel)]="picUrl" label="Picture Url" labelPlacement="stacked" fill="outline"
       auto-grow="true">
@@ -55,6 +55,16 @@
         {{ isActiveMode ? 'Light' : 'Dark' }}
       </ion-button>
     </div>
+    
+    <ion-item>
+      <ion-button 
+      class="button-save" 
+      slot="end"
+      size="default"
+      (click)="updateUsername()">
+      Save
+    </ion-button>
+    </ion-item>
 
     <ion-input [(ngModel)]="e_user_old_password" name="oldPassword" type="password" label="Old Password" labelPlacement="stacked"
       fill="outline">
@@ -69,7 +79,12 @@
     </ion-input>
 
     <ion-item>
-      <ion-button class="button-save" slot="end">SAVE</ion-button>
+      <ion-button 
+      class="button-change-pass" 
+      slot="end"
+      size="default"
+      (click)="updatePassword()">
+      Change Password</ion-button>
     </ion-item>
   </div>
 </ion-content>
