@@ -27,8 +27,6 @@ export class PreferencePage implements OnInit {
     var current_user_string = localStorage.getItem("app_current_user")??""
     this.current_user = JSON.parse(current_user_string)
 
-    
-
     this.route.params.subscribe(params => {
       this.cerbungservice.readUser(this.current_user.user_id).subscribe(
         (response: any) => {
@@ -42,6 +40,8 @@ export class PreferencePage implements OnInit {
    
   }
 
+
+  
   updateUsername() {
     this.cerbungservice.updateUser(
       this.current_user.user_id, this.e_user_username, this.current_user.user_profile_picture).subscribe(
@@ -79,5 +79,6 @@ export class PreferencePage implements OnInit {
   }
   toggleStatusMode() {
     this.isActiveMode = !this.isActiveMode;
+    document.body.classList.toggle('dark', !this.isActiveMode);
   }
 }
